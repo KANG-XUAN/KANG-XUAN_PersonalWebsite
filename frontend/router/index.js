@@ -1,42 +1,41 @@
-import Vue from 'vue';
-import Router from 'vue-router';
+// src/router/index.js
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-import IndexView from '@/views/IndexView.vue';
-import InterestView from '@/views/InterestView.vue';
-import ProfessionalView from '@/views/ProfessionalView.vue';
-import AboutView from '@/views/AboutView.vue';
+import IndexView from '@/views/IndexView.vue'
+import InterestView from '@/views/InterestView.vue'
+import ProfessionalView from '@/views/ProfessionalView.vue'
+import AboutView from '@/views/AboutView.vue'
 
+const routes = [
+	{
+		path: '/',
+		name: 'Index',
+		component: IndexView,
+	},
+	{
+		path: '/interest',
+		name: 'Interest',
+		component: InterestView,
+	},
+	{
+		path: '/professional',
+		name: 'Professional',
+		component: ProfessionalView,
+	},
+	{
+		path: '/about',
+		name: 'About',
+		component: AboutView,
+	},
+	{
+		path: '/:pathMatch(.*)*', // 錯誤頁導回首頁
+		redirect: '/',
+	},
+]
 
-Vue.use(Router);
+const router = createRouter({
+	history: createWebHashHistory(), // 用 hash 模式，適合 GitHub Pages
+	routes,
+})
 
-const router = new Router({
-	mode: 'history',  // 或用 'hash'，看你需求
-	routes: [
-		{	// 錯誤導向
-			path: '*',	
-			redirect: '/',
-		},
-		{	// 根目錄(開啟位置)
-			path: '/',	
-			name: 'Index',
-			component: IndexView,
-		},
-		{
-			path: '/interest',	
-			name: 'Interest',
-			component: InterestView,
-		},
-		{
-			path: '/professional',	
-			name: 'Professional',
-			component: ProfessionalView,
-		},
-		{
-			path: '/about',	
-			name: 'About',
-			component: AboutView,
-		},
-	],
-});
-
-export default router;
+export default router

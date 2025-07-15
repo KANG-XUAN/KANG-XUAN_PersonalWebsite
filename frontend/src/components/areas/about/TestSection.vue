@@ -4,7 +4,9 @@
 			<div class="accordion-header" @click="toggleItem(index)">
 				<h3>
 					{{ item.title }}
-					<a :href="item.pdfUrl.split('#')[0]" download class="download-btn" @click.stop>下載</a>
+					<a :href="item.pdfUrl.split('#')[0]" download class="download-btn" @click.stop>
+						下載
+					</a>
 				</h3>
 				<span>{{ activeIndex === index ? '▲' : '▼' }}</span>
 			</div>
@@ -17,26 +19,20 @@
 	</div>
 </template>
 
-<script>
-export default {
-	name: "TestSection",
-	data() {
-		return {
-			activeIndex: 0,
-			testItems: [
-				{
-					title: '九大職能星測驗報告',
-					pdfUrl: '/pdf/九大職能星報告_20250611.pdf#navpanes=0&toolbar=0&view=FitH'
-				}
-			]
-		};
+<script setup>
+import { ref } from 'vue'
+
+const activeIndex = ref(0)
+const testItems = [
+	{
+		title: '九大職能星測驗報告',
+		pdfUrl: import.meta.env.BASE_URL + '/pdf/九大職能星報告_20250611.pdf#navpanes=0&toolbar=0&view=FitH',
 	},
-	methods: {
-		toggleItem(index) {
-			this.activeIndex = this.activeIndex === index ? null : index;
-		}
-	}
-};
+]
+
+function toggleItem(index) {
+	activeIndex.value = activeIndex.value === index ? null : index
+}
 </script>
 
 <style scoped>

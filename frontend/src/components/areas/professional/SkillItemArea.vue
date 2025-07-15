@@ -17,9 +17,11 @@
 	</div>
 </template>
 
-<script>
-export default {
-	name: 'SkillItem',
-	props: ['id', 'title', 'imgSrc', 'description']
-}
+<script setup>
+defineProps({
+	id: String,
+	title: String,
+	imgSrc: String,
+	description: String
+})
 </script>

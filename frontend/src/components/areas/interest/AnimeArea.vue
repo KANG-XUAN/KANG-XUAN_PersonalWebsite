@@ -36,13 +36,11 @@
 									<div class="card-header p-2">
 										<iframe
 											src="https://player.bilibili.com/player.html?isOutside=true&aid=43909982&bvid=BV1xb41117KN&cid=76921700&p=1&autoplay=0"
-											scrolling="no" border="0" frameborder="no" framespacing="0"
-											allowfullscreen="true" class="w-100" style="height: 315px;"></iframe>
+											scrolling="no" frameborder="0" allowfullscreen class="w-100"
+											style="height: 315px;"></iframe>
 									</div>
 									<div class="card-body">
-										<h4 class="card-title mb-0">
-											《踏歌》－跨越海洋與歲月的友誼讚歌
-										</h4>
+										<h4 class="card-title mb-0">《踏歌》－跨越海洋與歲月的友誼讚歌</h4>
 										<small class="card-title mb-0">作者：花花很兇</small>
 									</div>
 								</div>
@@ -53,13 +51,11 @@
 									<div class="card-header p-2">
 										<iframe
 											src="https://player.bilibili.com/player.html?isOutside=true&aid=59347529&bvid=BV1Lt411G74w&cid=103444233&p=1&autoplay=0"
-											scrolling="no" border="0" frameborder="no" framespacing="0"
-											allowfullscreen="true" class="w-100" style="height: 315px;"></iframe>
+											scrolling="no" frameborder="0" allowfullscreen class="w-100"
+											style="height: 315px;"></iframe>
 									</div>
 									<div class="card-body">
-										<h4 class="card-title mb-0">
-											《雁歸》－穿梭江湖與時光的心靈之旅
-										</h4>
+										<h4 class="card-title mb-0">《雁歸》－穿梭江湖與時光的心靈之旅</h4>
 										<small class="card-title mb-0">作者：花花很兇</small>
 									</div>
 								</div>
@@ -74,10 +70,10 @@
 </template>
 
 <script setup>
-// Bootstrap 的折疊功能通常需要引入 bootstrap.bundle.js，確保你的專案已經引入
-// 這裡不需額外 JS，因為是原生 bootstrap 折疊元件
+// Bootstrap 的折疊功能是純 CSS + JS，只要你有在 main.js 引入 bootstrap.bundle.min.js 就可以正常運作
+// 這個元件內不需額外 JS 程式碼
 </script>
 
 <style scoped>
-/* 你可以自訂樣式 */
+/* 如需要你可以在這裡寫額外樣式 */
 </style>

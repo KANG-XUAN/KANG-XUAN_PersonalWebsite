@@ -1,12 +1,11 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from '../router/index.js';
+// src/main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from '../router'
 
+// Bootstrap 5
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 
-
-new Vue({
-	render: h => h(App),
-	router,
-}).$mount('#app');
+// 建立 Vue App 並掛載
+createApp(App).use(router).mount('#app')

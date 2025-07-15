@@ -10,10 +10,16 @@
 				@click="setActiveTab('anime')">
 				影片
 			</button>
-			<!-- <button type="button" class="btn btn-outline-primary flex-fill" :class="{ active: activeTab === 'game' }"
-				@click="setActiveTab('game')">
-				遊戲
-			</button> -->
+			<!--
+      <button
+        type="button"
+        class="btn btn-outline-primary flex-fill"
+        :class="{ active: activeTab === 'game' }"
+        @click="setActiveTab('game')"
+      >
+        遊戲
+      </button>
+      -->
 		</div>
 
 		<!-- 分頁內容區 -->
@@ -33,14 +39,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import MusicArea from '../areas/interest/MusicArea.vue';
-import AnimeArea from '../areas/interest/AnimeArea.vue';
+import { ref } from 'vue'
+import MusicArea from '../areas/interest/MusicArea.vue'
+import AnimeArea from '../areas/interest/AnimeArea.vue'
 
-const activeTab = ref('music');
+const activeTab = ref('music')
 
 function setActiveTab(tab) {
-	activeTab.value = tab;
+	activeTab.value = tab
 }
 </script>
 

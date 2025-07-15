@@ -4,13 +4,8 @@
 	</footer>
 </template>
 
-<script>
-export default {
-	name: 'FooterCommon',
-	data() {
-		return {};
-	}
-}
+<script setup>
+// 沒有特別邏輯，不用寫內容
 </script>
 
 <style scoped>

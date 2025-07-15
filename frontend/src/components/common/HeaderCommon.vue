@@ -1,19 +1,14 @@
 <template>
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center pt-0 pb-0">
-		<a class="nav-link text-white" href="/">首頁</a>
-		<a class="nav-link text-white" href="/interest">興趣</a>
-		<a class="nav-link text-white" href="/professional">專業</a>
-		<a class="nav-link text-white" href="/about">關於我</a>
+		<router-link class="nav-link text-white" to="/">首頁</router-link>
+		<router-link class="nav-link text-white" to="/interest">興趣</router-link>
+		<router-link class="nav-link text-white" to="/professional">專業</router-link>
+		<router-link class="nav-link text-white" to="/about">關於我</router-link>
 	</nav>
 </template>
 
-<script>
-export default {
-	name: 'HeaderCommon',
-	data() {
-		return {};
-	}
-}
+<script setup>
+// 無需定義 data，無邏輯
 </script>
 
 <style scoped>

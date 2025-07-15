@@ -1,6 +1,5 @@
 <template>
 	<div>
-
 		<div class="container-fluid">
 			<div class="row">
 				<HeaderCommon />
@@ -21,18 +20,12 @@
 	</div>
 </template>
 
-<script>
-import InterestPage from '@/components/pages/InterestPage.vue';
-import HeaderCommon from '@/components/common/HeaderCommon.vue';
-import FooterCommon from '@/components/common/FooterCommon.vue';
-
-export default {
-	components: {
-		InterestPage,
-		HeaderCommon,
-		FooterCommon,
-	}
-};
+<script setup>
+import InterestPage from '@/components/pages/InterestPage.vue'
+import HeaderCommon from '@/components/common/HeaderCommon.vue'
+import FooterCommon from '@/components/common/FooterCommon.vue'
 </script>
 
-<style scoped></style>
+<style scoped>
+/* 可放自訂樣式 */
+</style>

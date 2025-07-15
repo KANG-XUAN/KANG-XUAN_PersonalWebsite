@@ -26,27 +26,16 @@
 	</div>
 </template>
 
-<script>
-import ExternalSite from '../areas/about/ExternalSite.vue';
-import TestSection from '../areas/about/TestSection.vue';
+<script setup>
+import { ref, computed } from 'vue'
+import ExternalSite from '../areas/about/ExternalSite.vue'
+import TestSection from '../areas/about/TestSection.vue'
 
-export default {
-	name: "AboutPage",
-	components: {
-		ExternalSite,
-		TestSection
-	},
-	data() {
-		return {
-			activeTab: 'test'
-		};
-	},
-	computed: {
-		activeTabComponent() {
-			return this.activeTab === 'external' ? 'ExternalSite' : 'TestSection';
-		}
-	}
-};
+const activeTab = ref('test')
+
+const activeTabComponent = computed(() => {
+	return activeTab.value === 'external' ? ExternalSite : TestSection
+})
 </script>
 
 <style scoped>

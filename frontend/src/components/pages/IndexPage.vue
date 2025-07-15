@@ -21,66 +21,59 @@
 			</div>
 		</div>
 	</div>
-
 </template>
 
-<script>
-export default {
-	name: "IndexPage",
-	data() {
-		return {
-			welcomeVisible: false,
-			quoteVisible: false,
-			welcome: {
-				title: "",
-				message: ""
-			},
-			quote: {
-				quote: "",
-				author: ""
-			},
-			welcomes: [
-				{ title: "歡迎", message: "很高興你來到我的網站！這裡有關於我、我的興趣、以及我想分享的一些小故事。" },
-				{ title: "關於我", message: "想更了解我嗎？這裡有我的生活經歷、工作背景以及我對世界的看法。" },
-				{ title: "我的專案", message: "在這裡你可以看到我目前正在進行的專案，無論是創意還是技術領域，都有我的最新動態。" },
-				{ title: "作品集", message: "這是我的作品展示區，這裡匯集了我過去的創作和經歷，展示我的專業能力。" },
-				{ title: "經歷與成就", message: "了解我的成長歷程，從學習到工作中的經歷，這些成就構成了今天的我。" },
-				{ title: "聯繫我", message: "如果你對我的網站或專案有任何問題，隨時聯繫我，我很樂意與你交流。" },
-			],
-			quotes: [
-				{ quote: "秦時明月漢時關，一片孤城萬仞山。<br>蓬山此去無多路，輕舟已過萬重山。", author: "？？？" },
-				{ quote: "罔談彼短，靡恃己長。信使可覆，器欲難量。<br>禍因惡積，福緣善慶。尺璧非寶，寸陰是競。", author: "周興嗣《千字文．節選》" },
-				{ quote: "老驥伏櫪，志在千里。<br>烈士暮年，壯心不已。", author: "曹操《龜雖壽》" },
-				{ quote: "綠螘新醅酒，紅泥小火爐。<br>晚來天欲雪，能飲一杯無？", author: "白居易《問劉十九》" },
-				{ quote: "昨夜雨疏風驟，濃睡不消殘酒<br>試問捲簾人，卻道海棠依舊<br>知否？知否？應是綠肥紅瘦", author: "李清照《如夢令．昨夜雨疏風驟》" },
-				{ quote: "援琴鳴弦發清商，短歌微吟不能長<br>明月皎皎照我床，星漢西流夜未央<br>牽牛織女遙相望，爾獨何辜限河梁", author: "曹丕《燕歌行（一）．節選》" },
-			]
-		};
-	},
-	methods: {
-		getRandom(arr) {
-			return arr[Math.floor(Math.random() * arr.length)];
-		},
-		updateWelcome() {
-			this.welcomeVisible = false;
-			setTimeout(() => {
-				this.welcome = this.getRandom(this.welcomes);
-				this.welcomeVisible = true;
-			}, 50);
-		},
-		updateQuote() {
-			this.quoteVisible = false;
-			setTimeout(() => {
-				this.quote = this.getRandom(this.quotes);
-				this.quoteVisible = true;
-			}, 500);
-		}
-	},
-	mounted() {
-		this.updateWelcome();
-		this.updateQuote();
-	}
-};
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const welcomeVisible = ref(false)
+const quoteVisible = ref(false)
+
+const welcome = ref({ title: '', message: '' })
+const quote = ref({ quote: '', author: '' })
+
+const welcomes = [
+	{ title: "歡迎", message: "很高興你來到我的網站！這裡有關於我、我的興趣、以及我想分享的一些小故事。" },
+	{ title: "關於我", message: "想更了解我嗎？這裡有我的生活經歷、工作背景以及我對世界的看法。" },
+	{ title: "我的專案", message: "在這裡你可以看到我目前正在進行的專案，無論是創意還是技術領域，都有我的最新動態。" },
+	{ title: "作品集", message: "這是我的作品展示區，這裡匯集了我過去的創作和經歷，展示我的專業能力。" },
+	{ title: "經歷與成就", message: "了解我的成長歷程，從學習到工作中的經歷，這些成就構成了今天的我。" },
+	{ title: "聯繫我", message: "如果你對我的網站或專案有任何問題，隨時聯繫我，我很樂意與你交流。" },
+]
+
+const quotes = [
+	{ quote: "秦時明月漢時關，一片孤城萬仞山。<br>蓬山此去無多路，輕舟已過萬重山。", author: "？？？" },
+	{ quote: "罔談彼短，靡恃己長。信使可覆，器欲難量。<br>禍因惡積，福緣善慶。尺璧非寶，寸陰是競。", author: "周興嗣《千字文．節選》" },
+	{ quote: "老驥伏櫪，志在千里。<br>烈士暮年，壯心不已。", author: "曹操《龜雖壽》" },
+	{ quote: "綠螘新醅酒，紅泥小火爐。<br>晚來天欲雪，能飲一杯無？", author: "白居易《問劉十九》" },
+	{ quote: "昨夜雨疏風驟，濃睡不消殘酒<br>試問捲簾人，卻道海棠依舊<br>知否？知否？應是綠肥紅瘦", author: "李清照《如夢令．昨夜雨疏風驟》" },
+	{ quote: "援琴鳴弦發清商，短歌微吟不能長<br>明月皎皎照我床，星漢西流夜未央<br>牽牛織女遙相望，爾獨何辜限河梁", author: "曹丕《燕歌行（一）．節選》" },
+]
+
+function getRandom(arr) {
+	return arr[Math.floor(Math.random() * arr.length)]
+}
+
+function updateWelcome() {
+	welcomeVisible.value = false
+	setTimeout(() => {
+		welcome.value = getRandom(welcomes)
+		welcomeVisible.value = true
+	}, 50)
+}
+
+function updateQuote() {
+	quoteVisible.value = false
+	setTimeout(() => {
+		quote.value = getRandom(quotes)
+		quoteVisible.value = true
+	}, 500)
+}
+
+onMounted(() => {
+	updateWelcome()
+	updateQuote()
+})
 </script>
 
 <style scoped>

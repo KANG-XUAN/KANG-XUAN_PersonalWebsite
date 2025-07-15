@@ -77,10 +77,10 @@
 						<li :class="['page-item', currentPage === 1 ? 'disabled' : '']">
 							<a class="page-link" href="#" @click.prevent="goToPage(currentPage - 1)">上一頁</a>
 						</li>
-						<li v-for="page in pages" :key="pageKey(page)"
+						<li v-for="(page, index) in pages" :key="pageKey(page, index)"
 							:class="['page-item', page === currentPage ? 'active' : '', page === '...' ? 'disabled' : '']">
 							<a v-if="page !== '...'" class="page-link" href="#" @click.prevent="goToPage(page)">{{ page
-								}}</a>
+							}}</a>
 							<span v-else class="page-link">…</span>
 						</li>
 						<li :class="['page-item', currentPage === totalPages ? 'disabled' : '']">
@@ -157,8 +157,8 @@ const pages = computed(() => {
 	return result;
 });
 
-function pageKey(page) {
-	return page === '...' ? 'ellipsis' + Math.random() : 'page' + page;
+function pageKey(page, index) {
+	return page === '...' ? 'ellipsis-' + index : 'page-' + page;
 }
 
 function goToPage(page) {
