@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-// Vue 3 用 <script setup>，此元件目前不需要 JS 邏輯
+import './assets/css/common.css'
 </script>
 
 <style scoped>
