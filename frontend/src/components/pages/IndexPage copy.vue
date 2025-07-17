@@ -94,7 +94,7 @@ onMounted(() => {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url('@/assets/images/background.png');
+	background-image: url('@/assets/images/background.webp'), url('@/assets/images/background.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
