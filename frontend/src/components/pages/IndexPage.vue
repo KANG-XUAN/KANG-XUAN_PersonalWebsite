@@ -3,12 +3,14 @@
 		<step3 class="step" />
 
 		<step2 class="step" />
-		<step1 class="step" />
+		<SongArea class="step" />
+		<NovelArea class="step" />
 	</div>
 </template>
 
 <script setup>
-import Step1 from '@/components/areas/index/Step1.vue'
+import SongArea from '@/components/areas/index/SongArea.vue'
+import NovelArea from '@/components/areas/index/NovelArea.vue'
 import Step2 from '@/components/areas/index/Step2.vue'
 import Step3 from '@/components/areas/index/Step3.vue'
 </script>

@@ -3,6 +3,7 @@
     <a href="#step1" :class="{ active: activeId === 'step1' }"></a>
     <a href="#step2" :class="{ active: activeId === 'step2' }"></a>
     <a href="#step3" :class="{ active: activeId === 'step3' }"></a>
+    <a href="#step4" :class="{ active: activeId === 'step4' }"></a>
   </nav>
 </template>
 

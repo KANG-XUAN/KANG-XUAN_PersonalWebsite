@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import './assets/css/common.css'
+import './assets/css/main.css'
 </script>
 
 <style scoped>
