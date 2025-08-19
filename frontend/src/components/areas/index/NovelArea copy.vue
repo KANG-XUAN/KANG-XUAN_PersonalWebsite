@@ -8,7 +8,7 @@
 
 		<!-- 左側區塊 -->
 		<div class="areaContent">
-			<div class="article" :key="articleKey" @click="toggleArticle">
+			<div class="article" @click="toggleArticle">
 				<!-- <div :class="{ show: articleVisible }" class="articleSolid"></div> -->
 				<p :class="{ show: articleVisible }" class="articleText" v-html="article.text"></p>
 				<span :class="{ show: articleVisible }" class="articleFrom">
@@ -34,32 +34,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted } from 'vue'
+import leaves from './anime/leaves.vue'
 
 const articleVisible = ref(false)
 const article = ref({ title: '', message: '' })
 const isSwitching = ref(false); // 是否正在切換文章
-const isFirstLoad = ref(true)
-const articleKey = ref(0)
 
 const articles = [
 	// 我会修空调啊《我的治愈游戏》
-	{ text: "好人變成壞人，會壞得更加徹底。因為他們知道，糖已經不甜了。", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "可能這就是愛情吧，鍾情於你，忠誠於你，衷心於你，終止於你。", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "人性是開在深淵裡的花，每個人都渴望陽光，但誰又知道你根莖下面藏著什麽?", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "記憶是一種很難形容的東西，像是永遠都不會融化的雪，又像是轉瞬即逝的光，渴望抓住的抓不住，希望忘掉的忘不了。", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "表面越冷的人，內心其實可能會越火熱，因為他們生命的熱度被厚厚的冰殼包裹，只有在外殼被擊碎的時候才會流露出自己真實的情感。", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "我不否認她愛你，但她對你的愛不應該建立在扼殺你人格的基礎上，愛是相互的，可能會存在某些不平等，但大體上是公平的。", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "愛，從遇見那一刻開始，死亡也不會終止，只有當一方選擇離開時才算結束。", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "有時候，我感覺這個世界很壞，它總會抓著那些溫柔的人可勁欺負。", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "當一個人走到深淵旁邊的時候，只要被輕輕一推，他就可能再也無法回頭。至於推他的，可能是生活中一個不經意的細節，可能是陌生人的一句話，也可能是他自己曾經的記憶。", from: "我會修空調《我有一座恐怖屋》" },
-	{ text: "我在地獄裡伸出了手，沒有人來救，直到你出現的那天，我開始擔心自己會把你拖入深淵。", from: "我會修空調《我有一座恐怖屋》" },
-
 	{ text: "人不會發光，不過我們每個人手裡都有一個從先人那裡繼承到的火炬，這可以照亮黑夜的火炬叫做人生。我們把自己的經驗和記憶放入其中，充當燃料，人生就會升騰起火焰，我們便能高舉著它在黑夜中前行。", from: "我會修空調《我的治癒遊戲》" },
 	{ text: "奇蹟，一直存在，生命本身就是奇蹟。在無數黑夜和死寂當中，每個人都是自己的奇蹟。", from: "我會修空調《我的治癒遊戲》" },
-
-
-	{ text: "一個人，如果能有可以去等待著的事物，可以去擔心著的事物，不也是一種幸福嗎？所以，大人，我現在非常幸福哦，這些幸福，都是你給予的……", from: "第七重奏《暗黑破壞神之毀滅》" },
 ]
 
 function getRandomDifferent(arr, current) {
@@ -79,65 +64,37 @@ function getRandomDifferent(arr, current) {
 }
 
 function updateArticle() {
-	if (isSwitching.value) return
-	isSwitching.value = true
-
 	articleVisible.value = false
-
 	setTimeout(() => {
-		// 換內容
-		article.value = getRandomDifferent(articles, article.value)
-
-		// 改變 key 強制 DOM 重新渲染
-		articleKey.value++
-
-		// 淡入動畫觸發
-		setTimeout(() => {
-			articleVisible.value = true
-			isFirstLoad.value = false
-			isSwitching.value = false
-		}, 20)
-	}, 100)
+		article.value = getRandomDifferent(articles, null)
+		articleVisible.value = true
+	}, 50)
 }
 
 // 切換文章
 function toggleArticle() {
-	if (isFirstLoad.value || isSwitching.value) return; // 初次載入不觸發切換
+	if (isSwitching.value) return; // 如果正在切換，則不允許再次觸發
 
-	isSwitching.value = true
-	articleVisible.value = false
+	isSwitching.value = true; // 標誌設為 true，開始切換
+	articleVisible.value = false;
 
+	// 延遲時間需要和過渡時間匹配，設為1200ms或更長
 	setTimeout(() => {
-		article.value = getRandomDifferent(articles, article.value)
-		articleVisible.value = true
+		// 使用改進的 `getRandomDifferent` 方法
+		article.value = getRandomDifferent(articles, article.value);
+		articleVisible.value = true;
 
+		// 動畫完成後，重置 isSwitching
 		setTimeout(() => {
-			isSwitching.value = false
-		}, 1200)
-	}, 1200)
+			isSwitching.value = false; // 允許下一次切換
+		}, 1200); // 設置與動畫過渡時間一致
+	}, 1200); // 延遲時間與動畫時間匹配
 }
 
-// ✅ 使用 IntersectionObserver 監聽 step4 是否進入畫面
-let observer = null
-
 onMounted(() => {
-	const step4 = document.querySelector('#step4')
-	if (step4) {
-		observer = new IntersectionObserver((entries) => {
-			const entry = entries[0]
-			if (entry.isIntersecting) {
-				updateArticle()
-			}
-		}, {
-			threshold: 0.01, // 進入畫面時觸發
-		})
-		observer.observe(step4)
-	}
-})
+	updateArticle();
+});
 
-onUnmounted(() => {
-	if (observer) observer.disconnect()
-})
 </script>
 
 <style scoped>
@@ -217,8 +174,7 @@ onUnmounted(() => {
 	height: 24px;
 	opacity: 0;
 	transition: opacity 1.2s ease-in-out;
-	animation: none;
-	/* 不執行動畫 */
+	animation: none; /* 不執行動畫 */
 }
 
 /* 只有 .show 狀態才啟用動畫 + 顯示 */
@@ -311,4 +267,5 @@ onUnmounted(() => {
 .articleFrom.show {
 	opacity: 1;
 }
+
 </style>

@@ -41,6 +41,7 @@ const welcomes = [
 
 	{ quote: "沉默是金　難知若陰<br>戲言掩情　人面藏心", author: "隨筆" },
 	{ quote: "罔談彼短　靡恃己長　信使可覆　器欲難量<br>禍因惡積　福緣善慶　尺璧非寶　寸陰是競", author: "周興嗣《千字文．節選》" },
+	{ quote: "泰山崩於前而色不變，麋鹿興於左而目不瞬。", author: "" },
 ]
 
 const quotes = [

@@ -13,14 +13,15 @@
 
 		<div class="areaContent">
 
-			<div class="article" @click="toggleArticle">
+			<div class="article" :key="articleKey" @click="toggleArticle">
 				<!-- <div :class="{ show: articleVisible }" class="articleSolid"></div> -->
 				<p :class="{ show: articleVisible }" class="articleText" v-html="article.text"></p>
 				<span :class="{ show: articleVisible }" class="articleFrom">
 					<span v-html="article.from"></span>
 				</span>
 
-				<svg class="svg-mouse" :class="{ show: articleVisible }" width="16" height="24" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg">
+				<svg class="svg-mouse" :class="{ show: articleVisible }" width="16" height="24" viewBox="0 0 40 60"
+					xmlns="http://www.w3.org/2000/svg">
 					<!-- 滑鼠本體（直立橢圓） -->
 					<ellipse cx="20" cy="30" rx="15" ry="25" stroke="white" fill="none" stroke-width="2" />
 
@@ -43,12 +44,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import leaves from './anime/leaves.vue'
 
 const articleVisible = ref(false)
 const article = ref({ title: '', message: '' })
 const isSwitching = ref(false); // 是否正在切換文章
+const isFirstLoad = ref(true)
+const articleKey = ref(0)
 
 const articles = [
 	{ text: "情不敢至深　恐大夢一場<br>卦不敢算盡　畏天道無常", from: "荀夜羽《晴雪夜》" },
@@ -58,6 +61,8 @@ const articles = [
 	{ text: "見老婦雪髮萬千落<br>雙手合　不見濁<br>青絲化語與那孺子說", from: "歌詞《小僧無名》" },
 	{ text: "朔風淒　更漏迢遞　素手嗅白梨<br>庭水西　錦書難寄　羅線作舊衣<br>流鏨筆　字字誅心　遲語無歸期", from: "歌詞《長安不問》" },
 	{ text: "不淡不深　不棄不珍　不寒不暖　不欺不問<br>不思不忘　不聚不分　不留不捨　不憐不認", from: "歌詞《皎然記》" },
+	{ text: "人聲之外明月左右　河漢淺淺星辰清秀<br>二十年寫一段風流　美人尚小英雄年幼", from: "歌詞《永定四十年》" },
+	{ text: "拈花時一息悸動　垂眸後無動於衷　鬢邊逝去的朝暮枯榮", from: "歌詞《清醒夢》" },
 ]
 
 function getRandomDifferent(arr, current) {
@@ -77,36 +82,65 @@ function getRandomDifferent(arr, current) {
 }
 
 function updateArticle() {
+	if (isSwitching.value) return
+	isSwitching.value = true
+
 	articleVisible.value = false
+
 	setTimeout(() => {
-		article.value = getRandomDifferent(articles, null)
-		articleVisible.value = true
-	}, 50)
+		// 換內容
+		article.value = getRandomDifferent(articles, article.value)
+
+		// 改變 key 強制 DOM 重新渲染
+		articleKey.value++
+
+		// 淡入動畫觸發
+		setTimeout(() => {
+			articleVisible.value = true
+			isFirstLoad.value = false
+			isSwitching.value = false
+		}, 20)
+	}, 100)
 }
 
 // 切換文章
 function toggleArticle() {
-	if (isSwitching.value) return; // 如果正在切換，則不允許再次觸發
+	if (isFirstLoad.value || isSwitching.value) return; // 初次載入不觸發切換
 
-	isSwitching.value = true; // 標誌設為 true，開始切換
-	articleVisible.value = false;
+	isSwitching.value = true
+	articleVisible.value = false
 
-	// 延遲時間需要和過渡時間匹配，設為1200ms或更長
 	setTimeout(() => {
-		// 使用改進的 `getRandomDifferent` 方法
-		article.value = getRandomDifferent(articles, article.value);
-		articleVisible.value = true;
+		article.value = getRandomDifferent(articles, article.value)
+		articleVisible.value = true
 
-		// 動畫完成後，重置 isSwitching
 		setTimeout(() => {
-			isSwitching.value = false; // 允許下一次切換
-		}, 1200); // 設置與動畫過渡時間一致
-	}, 1200); // 延遲時間與動畫時間匹配
+			isSwitching.value = false
+		}, 1200)
+	}, 1200)
 }
 
+// ✅ 使用 IntersectionObserver 監聽 step3 是否進入畫面
+let observer = null
+
 onMounted(() => {
-	updateArticle();
-});
+	const step3 = document.querySelector('#step3')
+	if (step3) {
+		observer = new IntersectionObserver((entries) => {
+			const entry = entries[0]
+			if (entry.isIntersecting) {
+				updateArticle()
+			}
+		}, {
+			threshold: 0.01, // 進入畫面時觸發
+		})
+		observer.observe(step3)
+	}
+})
+
+onUnmounted(() => {
+	if (observer) observer.disconnect()
+})
 </script>
 
 <style scoped>
@@ -178,7 +212,8 @@ onMounted(() => {
 	height: 24px;
 	opacity: 0;
 	transition: opacity 1.2s ease-in-out;
-	animation: none; /* 不執行動畫 */
+	animation: none;
+	/* 不執行動畫 */
 }
 
 /* 只有 .show 狀態才啟用動畫 + 顯示 */
@@ -215,7 +250,7 @@ onMounted(() => {
 
 	font-size: 16px;
 	transform: translate(-800px, 270px);
-	z-index: 100;
+	/* z-index: 100; */
 
 	/* ✅ 新增以下來還原為橫式文字排列 */
 	writing-mode: horizontal-tb;

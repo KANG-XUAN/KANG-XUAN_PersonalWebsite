@@ -20,9 +20,9 @@ const leaves = ref([]);
 
 const leafPaths = [
 	// 原始的
-	"M5 10 Q15 0 25 15 Q20 30 10 35 Q2 25 5 10 Z",// 深葉型
-	"M5 5 Q15 10 20 20 Q10 35 0 25 Q5 15 5 5 Z", // 不規則型
-	"M4 12 Q12 0 22 10 Q28 22 18 34 Q8 38 2 28 Q0 20 4 12 Z",      // 長彎葉
+	"M5 10 Q15 0 25 15 Q20 30 10 35 Q2 25 5 10 Z",					// 深葉型
+	"M5 5 Q15 10 20 20 Q10 35 0 25 Q5 15 5 5 Z", 					// 不規則型
+	"M4 12 Q12 0 22 10 Q28 22 18 34 Q8 38 2 28 Q0 20 4 12 Z",     	// 長彎葉
 	"M6 8 Q16 2 26 16 Q20 28 12 32 Q4 28 3 20 Q2 14 6 8 Z",         // 左偏葉
 	"M3 9 Q14 -1 24 13 Q19 29 11 33 Q3 27 1 18 Q1 13 3 9 Z",        // 鋸齒邊感
 	"M5 6 Q17 5 23 17 Q15 30 6 33 Q2 26 3 18 Q3 11 5 6 Z",          // 比較寬厚葉
@@ -32,12 +32,19 @@ const leafPaths = [
 	"M4 8 Q14 2 24 12 Q22 26 12 32 Q3 26 2 16 Q2 12 4 8 Z",         // 彎曲中長葉
 ]
 
-function getRandomColor() {
-	const base = 6
-	const r = 0
-	const g = Math.floor(base + Math.random() * 20)
-	const b = Math.floor(base + Math.random() * 20)
-	return `rgb(${r}, ${g}, ${b})`
+// function getRandomColor() {
+// 	const base = 6
+// 	const r = 0
+// 	const g = Math.floor(base + Math.random() * 20)
+// 	const b = Math.floor(base + Math.random() * 20)
+// 	return `rgb(${r}, ${g}, ${b})`
+// }
+
+function getLeafColor(alpha = 0.8) {
+	const r = Math.floor(20 + Math.random() * 40)     // 20–60，偏少紅
+	const g = Math.floor(100 + Math.random() * 100)   // 100–200，主色是綠
+	const b = Math.floor(20 + Math.random() * 50)     // 20–70，偏少藍
+	return `rgba(${r}, ${g}, ${b}, ${alpha})`
 }
 
 function generateLeaves(count = 24) {
@@ -55,7 +62,7 @@ function generateLeaves(count = 24) {
 			angleSpeed: 0.01 + Math.random() * 0.02,
 			svgIndex: Math.floor(Math.random() * leafPaths.length),
 			rotateDirection: Math.random() > 0.5 ? 1 : -1,
-			color: getRandomColor(),
+			color: getLeafColor(0.2),
 		})
 	}
 
