@@ -2,7 +2,7 @@
 	<section id="step4" class="step-section">
 		<!-- 右側區塊 -->
 		<div class="areaTitle">
-			<h1>你，喜歡歌嗎？</h1>
+			<h1>文字，訴說著</h1>
 			<h5>　　有時候—一首歌就說了一段故事、一語感悟</h5>
 		</div>
 
@@ -146,38 +146,86 @@ onUnmounted(() => {
 	height: 100vh;
 	width: 100%;
 
+	/* 背景層 */
 	background-image:
-		/* 頂部_向下線性漸層 */
-		linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 30%),
-		/* 新增 ➕ 右側三分之一圓心的陰影 */
-		radial-gradient(ellipse 500px 300px at 70% center,
-			rgba(9, 230, 9, 0) 0%,
-			rgba(0, 0, 0, 0.1) 35%,
-			rgba(0, 0, 0, 0.3) 70%,
-			rgba(0, 0, 0, 0.6) 100%),
-		/* 中心_向內圓形漸層 */
-		/* radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgb(0, 0, 0) 100%), */
-		/* 背景圖片 */
-		url('@/assets/images/Step4_background.webp'), url('@/assets/images/Step4_background.jpg');
+		url('@/assets/images/Step4_background.webp'),
+		url('@/assets/images/Step4_background.jpg');
 	background-size: cover;
 	background-position: bottom;
 
 	font-size: 2rem;
 	color: white;
 
-	/* 中文直書排列 */
 	writing-mode: vertical-rl;
 	text-orientation: upright;
 
 	overflow: hidden;
 }
 
+/* 🔲 長駐遮罩：整個暗層覆蓋 */
+.step-section::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+
+	background-image:
+		linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 30%),
+		radial-gradient(ellipse 500px 300px at 70% center,
+			rgba(0, 0, 0, 0.5) 0%,
+			rgba(0, 0, 0, 0.7) 70%,
+			rgba(0, 0, 0, 0.8) 100%);
+
+	pointer-events: none;
+}
+
+/* 💡 閃爍亮光破口遮罩 */
+.step-section::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+
+	background: radial-gradient(
+		ellipse 500px 300px at 70% center,
+		rgba(255, 218, 117, 0.09) 0%,
+		rgba(255, 231, 123, 0.06) 40%,
+		rgba(255, 252, 240, 0.01) 70%,
+		rgba(255, 255, 255, 0) 100%
+	);
+
+	opacity: 0;
+	animation: flickerBurst 3s infinite;
+	pointer-events: none;
+}
+
+@keyframes flickerBurst {
+	0%   { opacity: 0; }
+	8%   { opacity: 1; }
+	10%  { opacity: 0; }
+	14%  { opacity: 1; }
+	16%  { opacity: 0; }
+	30%  { opacity: 1; }
+	31%  { opacity: 0; }
+	80%  { opacity: 0; }
+	81%  { opacity: 1; }
+	82%  { opacity: 0; }
+	100% { opacity: 0; }
+}
+
+
 .article {
 	cursor: pointer;
 	/* 設置為可點擊 */
 }
 
-/* 右側區塊 */
+/* 標題區塊 */
 .areaTitle {
 	position: relative;
 	transform: translate(-1250px, 40px);
@@ -188,26 +236,77 @@ onUnmounted(() => {
 	}
 }
 
-/* 左側區塊 */
+/* 內容區塊 */
 .areaContent {
 	position: relative;
-	width: 400px;
-	height: 400px;
+	/* width: 400px;
+	height: 400px; */
+
+	width: 40vw;
+	height: 40vh;
+	transform: translate(-20%, 60%);
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	/* 垂直和水平居中 */
 
-	font-size: 16px;
-	transform: translate(-200px, 90px);
+
+	/* transform: translate(-200px, 90px); */
 	z-index: 100;
 
 	/* ✅ 新增以下來還原為橫式文字排列 */
 	writing-mode: horizontal-tb;
 	text-orientation: initial;
 
+	/* 文章內容 */
+	.articleText {
+		font-size: clamp(8px, 1.6vw, 48px);
+		text-align: justify;
+		margin: 0 auto;
+		padding-left: 6px;
+		width: 100%;
+		opacity: 0;
+		transition: opacity 1s ease;
+		position: relative;
 
-	/* border: red solid 1px; */
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 2px;
+			/* 垂直線的寬度 */
+			background-color: white;
+			opacity: 0.6;
+		}
+	}
+
+	/* 文章來源 */
+	.articleFrom {
+		position: relative;
+		display: block;
+		text-align: right;
+		font-size: 16px;
+		opacity: 0;
+		transition: opacity 1s ease;
+		/* ❌ 不要 padding 或 margin 干擾對齊 */
+
+		&::before {
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			width: 18px;
+			/* 線的長度 */
+			height: 1px;
+			background-color: white;
+			opacity: 0.6;
+			margin-right: 6px;
+			/* 線和文字的距離 */
+		}
+	}
+
 }
 
 .svg-mouse {
@@ -252,51 +351,7 @@ onUnmounted(() => {
 	transition: opacity 1s ease;
 } */
 
-.articleText {
-	font-size: 20px;
-	text-align: justify;
-	margin: 0 auto;
-	padding-left: 6px;
-	width: 100%;
-	opacity: 0;
-	transition: opacity 1s ease;
-	position: relative;
-}
 
-.articleText::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	width: 2px;
-	/* 垂直線的寬度 */
-	background-color: white;
-	opacity: 0.6;
-}
-
-.articleFrom {
-	position: relative;
-	display: block;
-	text-align: right;
-	font-size: 16px;
-	opacity: 0;
-	transition: opacity 1s ease;
-	/* ❌ 不要 padding 或 margin 干擾對齊 */
-}
-
-.articleFrom::before {
-	content: '';
-	display: inline-block;
-	vertical-align: middle;
-	width: 18px;
-	/* 線的長度 */
-	height: 1px;
-	background-color: white;
-	opacity: 0.6;
-	margin-right: 6px;
-	/* 線和文字的距離 */
-}
 
 /* 文章區塊顯示/隱藏動畫 */
 .articleText,

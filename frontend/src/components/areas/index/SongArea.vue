@@ -55,14 +55,13 @@ const articleKey = ref(0)
 
 const articles = [
 	{ text: "情不敢至深　恐大夢一場<br>卦不敢算盡　畏天道無常", from: "荀夜羽《晴雪夜》" },
-	// { text: "西北有蟬　名曰無夢<br>終南有墳　名曰不老", from: "？？？《？？？》" },
 	{ text: "一十七畫盡相思　書做無緣只兩字<br>一十九筆結心意　有緣相聚莫別離", from: "歌詞《殺陣》" },
 	{ text: "不見江瀾　且問青山　飄飲擺川　只燈照晚<br>不見悲歡　且撫琴帆　敗樓聽蟬　和音頌喃", from: "歌詞《小僧無名》" },
 	{ text: "見老婦雪髮萬千落<br>雙手合　不見濁<br>青絲化語與那孺子說", from: "歌詞《小僧無名》" },
 	{ text: "朔風淒　更漏迢遞　素手嗅白梨<br>庭水西　錦書難寄　羅線作舊衣<br>流鏨筆　字字誅心　遲語無歸期", from: "歌詞《長安不問》" },
 	{ text: "不淡不深　不棄不珍　不寒不暖　不欺不問<br>不思不忘　不聚不分　不留不捨　不憐不認", from: "歌詞《皎然記》" },
 	{ text: "人聲之外明月左右　河漢淺淺星辰清秀<br>二十年寫一段風流　美人尚小英雄年幼", from: "歌詞《永定四十年》" },
-	{ text: "拈花時一息悸動　垂眸後無動於衷　鬢邊逝去的朝暮枯榮", from: "歌詞《清醒夢》" },
+	{ text: "拈花時一息悸動<br>垂眸後無動於衷<br>鬢邊逝去的朝暮枯榮", from: "歌詞《清醒夢》" },
 ]
 
 function getRandomDifferent(arr, current) {
@@ -180,24 +179,38 @@ onUnmounted(() => {
 	/* 設置為可點擊 */
 }
 
-/* 右側區塊 */
+/* 標題區塊 */
 .areaTitle {
 	position: relative;
-	transform: translate(-150px, 40px);
+	/* transform: translate(-150px, 40px); */
+	transform: translate(-180%, 5%);
 	z-index: 100;
 
 	* {
 		margin: 0;
 	}
+
+	h1 {
+		font-size: 2.9vw;
+	}
+
+	h6 {
+		font-size: 1.3vw;
+	}
 }
 
+/* 內容區塊(上方) */
 .sectionStar {
 	position: absolute;
-	top: 150px;
-	left: 150px;
+	/* top: 150px;
+	left: 150px; */
+	top: 20%;
+	left: 10%;
+	/* transform: translate(-130%, 40%); */
 
 	font-family: '王翰宗中行書';
-	font-size: 48px;
+	/* font-size: 48px; */
+	font-size: clamp(20px, 3.6vw, 72px);
 	/* ✅ 新增以下來還原為橫式文字排列 */
 	writing-mode: horizontal-tb;
 	text-orientation: initial;
@@ -238,39 +251,31 @@ onUnmounted(() => {
 	}
 }
 
-/* 左側區塊 */
+/* 內容區塊 */
 .areaContent {
 	position: relative;
-	width: 500px;
-	height: 300px;
+	width: 40%;
+	height: 40%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	/* 垂直和水平居中 */
 
-	font-size: 16px;
-	transform: translate(-800px, 270px);
+	top: 55%;
+	left: -46%;
+	/* transform: translate(-800px, 270px); */
 	/* z-index: 100; */
 
 	/* ✅ 新增以下來還原為橫式文字排列 */
 	writing-mode: horizontal-tb;
 	text-orientation: initial;
 
-
 	/* border: red solid 1px; */
 }
 
-/* .articleSolid {
-	margin: 10px auto;
-	height: 2px;
-	width: 70%;
-	background-color: white;
-	opacity: 0;
-	transition: opacity 1s ease;
-} */
-
 .articleText {
-	font-size: 20px;
+	/* font-size: 20px; */
+	font-size: clamp(10px, 1.3vw, 50px);
 	text-align: justify;
 	margin: 0 auto;
 	padding-left: 6px;

@@ -106,31 +106,39 @@ onMounted(() => {
 	overflow: hidden;
 }
 
-/* 右上區塊 */
+/* 座右銘區塊 */
 .right-top-block {
-	width: 900px;
-	transform: translate(550px, 440px);
+	/* width: 900px; */
+	/* transform: translate(550px, 440px); */
+	/* transform: translate(48%, 250%); */
+	position: absolute;
+	bottom: 10%;
+	left: 30%;
 	z-index: 100;
 
 	* {
 		font-family: '王翰宗中行書';
 	}
 
+	h1{
+		font-size: 3vw;
+	}
+
 	small {
 		display: block;
 		/* 讓 small 變成區塊元素，才會生效 */
 		text-align: right;
-		/* 文字靠右 */
+		font-size: 2vw;
 	}
 }
 
 .sectionStar {
 	position: absolute;
-	top: 150px;
-	left: 150px;
+	top: 12%;
+	left: 5%;
 
 	font-family: '王翰宗中行書';
-	font-size: 72px;
+	font-size: 6vw;
 
 	/* border: red solid 1px; */
 }

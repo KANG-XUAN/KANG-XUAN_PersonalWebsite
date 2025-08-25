@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<!-- margin-right來讓Header不要遮住右方滾動條 -->
-		<div class="container-fluid fixed-top" style="margin-right: 16px;">
+		<div class="container-fluid fixed-top">
 			<div class="row">
 				<HeaderCommon />
 			</div>
