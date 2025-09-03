@@ -2,8 +2,10 @@
 	<section id="step4" class="step-section">
 		<!-- 右側區塊 -->
 		<div class="areaTitle">
-			<h1>文字，訴說著</h1>
-			<h5>　　有時候—一首歌就說了一段故事、一語感悟</h5>
+			<span class="word1">文</span>
+			<span class="word2">字</span>
+			<span class="word3">簡單地</span>
+			<span class="word4">勾勒出能觸及內心的優美字句</span>
 		</div>
 
 		<!-- 左側區塊 -->
@@ -192,13 +194,11 @@ onUnmounted(() => {
 	height: 100%;
 	z-index: 2;
 
-	background: radial-gradient(
-		ellipse 500px 300px at 70% center,
-		rgba(255, 218, 117, 0.09) 0%,
-		rgba(255, 231, 123, 0.06) 40%,
-		rgba(255, 252, 240, 0.01) 70%,
-		rgba(255, 255, 255, 0) 100%
-	);
+	background: radial-gradient(ellipse 500px 300px at 70% center,
+			rgba(255, 218, 117, 0.09) 0%,
+			rgba(255, 231, 123, 0.06) 40%,
+			rgba(255, 252, 240, 0.01) 70%,
+			rgba(255, 255, 255, 0) 100%);
 
 	opacity: 0;
 	animation: flickerBurst 3s infinite;
@@ -206,17 +206,49 @@ onUnmounted(() => {
 }
 
 @keyframes flickerBurst {
-	0%   { opacity: 0; }
-	8%   { opacity: 1; }
-	10%  { opacity: 0; }
-	14%  { opacity: 1; }
-	16%  { opacity: 0; }
-	30%  { opacity: 1; }
-	31%  { opacity: 0; }
-	80%  { opacity: 0; }
-	81%  { opacity: 1; }
-	82%  { opacity: 0; }
-	100% { opacity: 0; }
+	0% {
+		opacity: 0;
+	}
+
+	8% {
+		opacity: 1;
+	}
+
+	10% {
+		opacity: 0;
+	}
+
+	14% {
+		opacity: 1;
+	}
+
+	16% {
+		opacity: 0;
+	}
+
+	30% {
+		opacity: 1;
+	}
+
+	31% {
+		opacity: 0;
+	}
+
+	80% {
+		opacity: 0;
+	}
+
+	81% {
+		opacity: 1;
+	}
+
+	82% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+	}
 }
 
 
@@ -227,12 +259,42 @@ onUnmounted(() => {
 
 /* 標題區塊 */
 .areaTitle {
-	position: relative;
-	transform: translate(-1250px, 40px);
+	position: absolute;
+	/* transform: translate(-1250px, 40px); */
+	left: 15%;
+	width: 24vw;
 	z-index: 100;
+	/* border: 1px solid red; */
+	writing-mode: horizontal-tb;
 
 	* {
 		margin: 0;
+		font-family: '王翰宗中行書';
+	}
+
+	.word1 {
+		font-size: 9vw;
+	}
+
+	.word2 {
+		position: absolute;
+
+		font-size: 12vw;
+		transform: translate(-46%, 10%);
+	}
+
+	.word3 {
+		position: absolute;
+
+		font-size: 4vw;
+		transform: translate(20%, 190%);
+	}
+
+	.word4 {
+		position: absolute;
+		white-space: nowrap;
+		font-size: 2vw;
+		transform: translate(-20%, 580%);
 	}
 }
 
@@ -256,13 +318,14 @@ onUnmounted(() => {
 	z-index: 100;
 
 	/* ✅ 新增以下來還原為橫式文字排列 */
-	writing-mode: horizontal-tb;
+	/* writing-mode: horizontal-tb; */
 	text-orientation: initial;
 
 	/* 文章內容 */
 	.articleText {
 		font-size: clamp(8px, 1.6vw, 48px);
 		text-align: justify;
+		line-height: 2;
 		margin: 0 auto;
 		padding-left: 6px;
 		width: 100%;
@@ -271,15 +334,14 @@ onUnmounted(() => {
 		position: relative;
 
 		&::before {
-			content: '';
-			position: absolute;
+			content: '　　';
+			/* position: absolute;
 			left: 0;
 			top: 0;
 			bottom: 0;
 			width: 2px;
-			/* 垂直線的寬度 */
 			background-color: white;
-			opacity: 0.6;
+			opacity: 0.6; */
 		}
 	}
 
@@ -297,9 +359,8 @@ onUnmounted(() => {
 			content: '';
 			display: inline-block;
 			vertical-align: middle;
-			width: 18px;
-			/* 線的長度 */
-			height: 1px;
+			width: 1px;
+			height: 18px;
 			background-color: white;
 			opacity: 0.6;
 			margin-right: 6px;
@@ -311,7 +372,7 @@ onUnmounted(() => {
 
 .svg-mouse {
 	display: block;
-	margin: 16px auto 0 auto;
+	margin: auto 16px auto 0;
 	width: 16px;
 	height: 24px;
 	opacity: 0;
