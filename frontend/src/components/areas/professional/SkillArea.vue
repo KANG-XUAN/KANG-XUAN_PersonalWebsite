@@ -68,10 +68,16 @@ const skills = [
 	},
 	{
 		id: 'collapseVue',
-		title: 'VUE2',
+		title: 'VUE',
 		imgSrc: Vue2Icon,
 		description:
-			'我擅長使用 Vue2 開發單頁應用程式，並且熟悉其數據綁定、組件化開發和路由管理等功能，能有效提升應用的可維護性和擴展性。',
+			`我擅長使用 Vue2 開發單頁應用程式，並且熟悉其數據綁定、組件化開發和路由管理等功能，能有效提升應用的可維護性和擴展性。
+			技術棧：
+			Pinia
+			Vue Router
+			Vite
+			Axios 
+			`,
 	},
 	{
 		id: 'collapseNodeJS',

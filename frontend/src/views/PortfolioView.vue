@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="portfolio">
 		<!-- margin-right來讓Header不要遮住右方滾動條 -->
 		<div class="container-fluid">
 			<div class="row">
@@ -9,7 +9,7 @@
 
 		<div class="container p-0">
 			<!-- <div class="row"> -->
-				<PortfolioPage />
+			<PortfolioPage />
 			<!-- </div> -->
 		</div>
 
@@ -28,5 +28,8 @@ import FooterCommon from '@/components/common/FooterCommon.vue'
 </script>
 
 <style scoped>
-/* 可放自訂樣式 */
+#portfolio {
+	background-color: #fdf6e3;
+	background-image: url(https://www.transparenttextures.com/patterns/paper-fibers.png);
+}
 </style>

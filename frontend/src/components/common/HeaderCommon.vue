@@ -1,5 +1,5 @@
 <template>
-	<div class="sticky-top header-bar" :class="{ 'with-scrollbar-padding': route.path === '/' }">
+	<header class="sticky-top header-bar" :class="{ 'with-scrollbar-padding': route.path === '/' }">
 		<div class="container-fluid">
 			<div class="row align-items-center">
 				<!-- 左側 3 -->
@@ -11,12 +11,12 @@
 
 
 				<!-- 中間 6 導覽列 -->
-				<div class="col-6">
+				<div class="col-5">
 					<!-- 放功能相關{{}} -->
 				</div>
 
 				<!-- 右側 3 -->
-				<div class="col-3 text-end pe-3 text-white">
+				<div class="col-4 text-end pe-3 text-white">
 					<nav class="navbar nav-links">
 						<router-link class="nav-link text-white" to="/interest">興趣</router-link>
 						<router-link class="nav-link text-white" to="/professional">專業</router-link>
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</header>
 </template>
 
 <script setup>
@@ -42,7 +42,6 @@ const route = useRoute()
 	z-index: 10;
 	backdrop-filter: blur(4px);
 	padding: 5px 0;
-	margin-bottom: 30px;
 	width: 100%;
 }
 

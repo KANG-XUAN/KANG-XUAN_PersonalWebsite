@@ -5,7 +5,7 @@
 			<span class="word1">文</span>
 			<span class="word2">字</span>
 			<span class="word3">簡單地</span>
-			<span class="word4">勾勒出能觸及內心的優美字句</span>
+			<span class="word4">勾勒出足以觸及內心的優美字句</span>
 		</div>
 
 		<!-- 左側區塊 -->

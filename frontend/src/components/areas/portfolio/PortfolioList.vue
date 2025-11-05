@@ -1,4 +1,11 @@
 <template>
+	<div class="card mb-5 mt-5">
+		<a href="https://github.com/KANG-XUAN?tab=repositories" target="_blank">
+			<img src="@/assets/images/github_home.png" class="card-img-top w-100" alt="GitHub 圖片" />
+		</a>
+	</div>
+
+
 	<div class="row g-4">
 		<div v-for="project in projects" :key="project.title" class="col-sm-12 col-md-6">
 			<!-- 卡片容器 -->

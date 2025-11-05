@@ -10,4 +10,11 @@
 
 <style scoped>
 /* 若需要局部樣式，寫這裡 */
+footer {
+	background-color: #000000;
+	background-image: url("https://www.transparenttextures.com/patterns/shattered.png");
+	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+
+	z-index: 100;
+}
 </style>
