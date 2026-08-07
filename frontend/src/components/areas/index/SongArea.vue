@@ -160,7 +160,7 @@ onUnmounted(() => {
 		/* 中心_向內圓形漸層 */
 		/* radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgb(0, 0, 0) 100%), */
 		/* 背景圖片 */
-		url('@/assets/images/Step1_background.webp'), url('@/assets/images/Step1_background.jpg');
+		url('@/assets/images/Step3_background.webp'), url('@/assets/images/Step3_background.jpg');
 	background-size: cover;
 	background-position: center;
 

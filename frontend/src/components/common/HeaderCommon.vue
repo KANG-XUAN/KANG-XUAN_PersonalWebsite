@@ -18,7 +18,6 @@
 				<!-- 右側 3 -->
 				<div class="col-4 text-end pe-3 text-white">
 					<nav class="navbar nav-links">
-						<router-link class="nav-link text-white" to="/interest">興趣</router-link>
 						<router-link class="nav-link text-white" to="/professional">專業</router-link>
 						<router-link class="nav-link text-white" to="/portfolio">作品集</router-link>
 						<router-link class="nav-link text-white" to="/about">關於我</router-link>

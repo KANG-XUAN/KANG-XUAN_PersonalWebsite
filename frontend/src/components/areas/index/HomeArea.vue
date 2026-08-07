@@ -12,8 +12,8 @@
 
 		<!-- 左下區塊 -->
 		<!-- <div class="left-bottom-block"> -->
-			<!-- 引用名言區 -->
-			<!-- <div class="quotations quotations-anime mt-auto">
+		<!-- 引用名言區 -->
+		<!-- <div class="quotations quotations-anime mt-auto">
 				<h2 :class="{ show: quoteVisible }" class="welcomeTitle">{{ welcome.title }}</h2>
 				<div :class="{ show: quoteVisible }" class="welcomeSolid"></div>
 				<div :class="{ show: quoteVisible }" class="quote" v-html="quote.quote"></div>
@@ -96,7 +96,7 @@ onMounted(() => {
 		/* 中心_向內圓形漸層 */
 		/* radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgb(0, 0, 0) 100%), */
 		/* 背景圖片 */
-		url('@/assets/images/Step3_background.webp'), url('@/assets/images/Step3_background.jpg');
+		url('@/assets/images/Step1_background.webp'), url('@/assets/images/Step1_background.jpg');
 	background-size: cover;
 	background-position: center;
 
@@ -116,11 +116,13 @@ onMounted(() => {
 	left: 30%;
 	z-index: 100;
 
+	user-select: none;
+
 	* {
 		font-family: '王翰宗中行書';
 	}
 
-	h1{
+	h1 {
 		font-size: 3vw;
 	}
 
@@ -140,6 +142,7 @@ onMounted(() => {
 	font-family: '王翰宗中行書';
 	font-size: 6vw;
 
+	user-select: none;
 	/* border: red solid 1px; */
 }
 
