@@ -13,11 +13,6 @@ const routes = [
 		name: 'Index',
 		component: IndexView,
 	},
-	{	// 興趣
-		path: '/interest',
-		name: 'Interest',
-		component: InterestView,
-	},
 	{	// 專業
 		path: '/professional',
 		name: 'Professional',
