@@ -114,7 +114,7 @@ onMounted(() => {
 	position: absolute;
 	bottom: 10%;
 	left: 30%;
-	z-index: 100;
+	/* z-index: 100; */
 
 	user-select: none;
 

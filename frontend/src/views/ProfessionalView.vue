@@ -1,23 +1,27 @@
 <template>
-	<div id="professional">
-		<div class="container-fluid">
-			<div class="row">
-				<HeaderCommon />
-			</div>
-		</div>
+    <div id="professional">
 
-		<div class="container-fluid">
-			<div class="row">
-				<ProfessionalPage />
-			</div>
-		</div>
+        <div class="container-fluid">
+            <div class="row">
+                <HeaderCommon />
+            </div>
+        </div>
 
-		<div class="container-fluid">
-			<div class="row">
-				<FooterCommon />
-			</div>
-		</div>
-	</div>
+
+        <div class="container-fluid professional-content">
+            <div class="row">
+                <ProfessionalPage />
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <FooterCommon />
+            </div>
+        </div>
+
+    </div>
 </template>
 
 <script setup>
@@ -28,8 +32,24 @@ import FooterCommon from '@/components/common/FooterCommon.vue'
 
 <style scoped>
 #professional {
-	background-color: #472500;
-	background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
-	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #472500;
+    background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
+}
+
+
+/*
+ * ProfessionalPage 所在的區域
+ *
+ * Header / Footer 多高都沒關係，
+ * 這裡自動吃剩下的高度。
+ */
+.professional-content {
+    flex: 1;
+    min-height: 0;
 }
 </style>

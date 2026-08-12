@@ -2,16 +2,21 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import IndexView from '@/views/IndexView.vue'
-import InterestView from '@/views/InterestView.vue'
 import ProfessionalView from '@/views/ProfessionalView.vue'
 import PortfolioView from '@/views/PortfolioView.vue'
 import AboutView from '@/views/AboutView.vue'
+import AdminView from '@/views/AdminView.vue'
 
 const routes = [
 	{
 		path: '/',
 		name: 'Index',
 		component: IndexView,
+	},
+	{	// 管理頁
+		path: '/admin',
+		name: 'Admin',
+		component: AdminView,
 	},
 	{	// 專業
 		path: '/professional',

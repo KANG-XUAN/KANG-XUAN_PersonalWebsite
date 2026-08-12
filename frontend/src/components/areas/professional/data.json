@@ -1,0 +1,67 @@
+{
+    "skills": [
+        {
+            "id": "1",
+            "title": "HTML",
+            "icon": "HTML.png",
+            "describe": "負責網頁結構與內容的建立，熟悉語意化標籤、表單、表格以及基本的響應式頁面結構。(測試用假資料)",
+            "details": "具備 HTML5 網頁結構設計經驗，熟悉語意化標籤的使用方式，能依照網站需求規劃 Header、Navigation、Main、Section、Footer 等主要區塊。實作時會注意內容結構、可讀性與後續 CSS、JavaScript 維護上的便利性，並能配合響應式設計建立不同螢幕尺寸下的網頁架構。(測試用假資料)"
+        },
+        {
+            "id": "2",
+            "title": "Vue 2",
+            "icon": "Vue2.png",
+            "describe": "使用 Vue 建立互動式網頁介面，熟悉元件化開發、資料綁定、事件處理與基本狀態管理。(測試用假資料)",
+            "details": "曾使用 Vue 2 進行前端網頁開發，熟悉 Template、Data、Computed、Methods、Watch 等基本概念，也有元件拆分與父子元件資料傳遞的實作經驗。能透過 Props 與 Emit 建立元件之間的溝通機制，並利用 Computed 處理畫面所需的衍生資料，讓大型頁面維持較好的結構與可維護性。(測試用假資料)"
+        },
+        {
+            "id": "3",
+            "title": "Node.js",
+            "icon": "Node.png",
+            "describe": "使用 Node.js 建立後端服務與 API，處理前後端資料交換以及基本的伺服器邏輯。(測試用假資料)",
+            "details": "具備 Node.js 基礎後端開發能力，能使用 Express 建立 REST API，處理 HTTP Request、Response、Middleware 與基本的錯誤處理。前端可以透過 API 取得資料並更新畫面，後端則負責資料整理、驗證與資料庫溝通。未來也可以將目前使用的 JSON 假資料逐步替換成真正的 API 資料來源。(測試用假資料)"
+        },
+        {
+            "id": "4",
+            "title": "Java",
+            "icon": "Java.png",
+            "describe": "具備 Java 程式設計與物件導向開發基礎，可進行後端邏輯與資料處理。(測試用假資料)",
+            "details": "熟悉 Java 基本語法與物件導向程式設計概念，包含 Class、Object、Inheritance、Interface 與 Exception Handling 等。能夠進行基本的資料處理、流程控制與商業邏輯撰寫，也能搭配常見的 Java 後端框架進行 API 與服務端功能開發。(測試用假資料)"
+        },
+        {
+            "id": "5",
+            "title": "Cloud",
+            "icon": "Cloud.png",
+            "describe": "了解雲端服務與部署概念，能將網站與後端服務部署至雲端環境。(測試用假資料)",
+            "details": "具備雲端服務的基礎概念，了解 Web Application、Server、Database 與 Storage 等服務之間的關係。能進行基本的網站部署與環境設定，並理解 Domain、HTTPS、Environment Variables、API Server 等常見部署概念。未來可進一步整合雲端資料庫與 CI/CD 流程，建立完整的網站部署架構。(測試用假資料)"
+        },
+        {
+            "id": "6",
+            "title": "Word",
+            "icon": "Word.png",
+            "describe": "熟悉 Microsoft Word 文件製作，可處理正式文件、報告、表格與文件排版。(測試用假資料)",
+            "details": "熟悉 Microsoft Word 文件編排與日常辦公應用，能建立正式報告、企劃文件與技術文件。具備段落格式、樣式、頁首頁尾、目錄、表格、圖片與文件排版等操作能力，也能利用範本與統一樣式提升大量文件製作時的一致性與效率。(測試用假資料)"
+        },
+        {
+            "id": "7",
+            "title": "Excel",
+            "icon": "Excel.png",
+            "describe": "熟悉 Excel 資料整理、公式計算、表格製作與基本資料分析。(測試用假資料)",
+            "details": "熟悉 Microsoft Excel 的資料整理與分析功能，能使用常見函數進行資料計算、分類與統計，並能搭配排序、篩選、條件格式與樞紐分析等功能處理大量資料。也能建立具備清楚欄位結構的工作表，讓資料後續更容易進行維護、分析與報表製作。(測試用假資料)"
+        },
+        {
+            "id": "8",
+            "title": "PowerPoint",
+            "icon": "PowerPoint.png",
+            "describe": "熟悉簡報製作與視覺化資訊整理，能將複雜內容整理成清楚易懂的簡報。(測試用假資料)",
+            "details": "熟悉 Microsoft PowerPoint 簡報製作，能依照簡報目的規劃內容結構與頁面層級。具備文字、圖片、圖表、流程圖與動畫效果的基本應用能力，並會注意版面配置與資訊閱讀順序，讓技術內容或工作成果能以較直觀的方式呈現。(測試用假資料)"
+        },
+        {
+            "id": "9",
+            "title": "Illustrator",
+            "icon": "Illustrator.png",
+            "describe": "使用 Adobe Illustrator 進行向量圖形設計，可製作圖示、Logo 與基本視覺素材。(測試用假資料)",
+            "details": "熟悉 Adobe Illustrator 的基本向量繪圖與版面設計功能，能使用鋼筆工具、圖形工具、路徑管理與文字工具製作基本視覺素材。可應用於網站 Icon、Logo、簡單插圖與 UI 素材製作，也能將完成的向量素材輸出成適合網頁使用的圖片格式。(測試用假資料)"
+        }
+    ]
+}
