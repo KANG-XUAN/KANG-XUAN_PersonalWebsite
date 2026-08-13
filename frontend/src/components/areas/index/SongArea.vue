@@ -15,9 +15,9 @@
 
 			<div class="article" :key="articleKey" @click="toggleArticle">
 				<!-- <div :class="{ show: articleVisible }" class="articleSolid"></div> -->
-				<p :class="{ show: articleVisible }" class="articleText" v-html="article.text"></p>
+				<p :class="{ show: articleVisible }" class="articleText" v-html="currentArticle.text"></p>
 				<span :class="{ show: articleVisible }" class="articleFrom">
-					<span v-html="article.from"></span>
+					<span v-html="currentArticle.from"></span>
 				</span>
 
 				<svg class="svg-mouse" :class="{ show: articleVisible }" width="16" height="24" viewBox="0 0 40 60"
@@ -47,22 +47,17 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import leaves from './anime/leaves.vue'
 
+// JSON 資料
+import DataSong from '@/assets/json/song.json'
+const articles = DataSong.articles
+console.log('我的文章資料：', DataSong)
+
 const articleVisible = ref(false)
-const article = ref({ title: '', message: '' })
+const currentArticle = ref({ text: '', from: '' })
 const isSwitching = ref(false); // 是否正在切換文章
 const isFirstLoad = ref(true)
 const articleKey = ref(0)
 
-const articles = [
-	{ text: "情不敢至深　恐大夢一場<br>卦不敢算盡　畏天道無常", from: "荀夜羽《晴雪夜》" },
-	{ text: "一十七畫盡相思　書做無緣只兩字<br>一十九筆結心意　有緣相聚莫別離", from: "歌詞《殺陣》" },
-	{ text: "不見江瀾　且問青山　飄飲擺川　只燈照晚<br>不見悲歡　且撫琴帆　敗樓聽蟬　和音頌喃", from: "歌詞《小僧無名》" },
-	{ text: "見老婦雪髮萬千落<br>雙手合　不見濁<br>青絲化語與那孺子說", from: "歌詞《小僧無名》" },
-	{ text: "朔風淒　更漏迢遞　素手嗅白梨<br>庭水西　錦書難寄　羅線作舊衣<br>流鏨筆　字字誅心　遲語無歸期", from: "歌詞《長安不問》" },
-	{ text: "不淡不深　不棄不珍　不寒不暖　不欺不問<br>不思不忘　不聚不分　不留不捨　不憐不認", from: "歌詞《皎然記》" },
-	{ text: "人聲之外明月左右　河漢淺淺星辰清秀<br>二十年寫一段風流　美人尚小英雄年幼", from: "歌詞《永定四十年》" },
-	{ text: "拈花時一息悸動<br>垂眸後無動於衷<br>鬢邊逝去的朝暮枯榮", from: "歌詞《清醒夢》" },
-]
 
 function getRandomDifferent(arr, current) {
 	let randomArticle;
@@ -75,12 +70,14 @@ function getRandomDifferent(arr, current) {
 	// 隨機選擇文章，直到選到不同的
 	do {
 		randomArticle = arr[Math.floor(Math.random() * arr.length)];
-	} while (randomArticle.text === current.text && randomArticle.from === current.from); // 比較內容
+	} while (randomArticle.text === current.text); // 比較內容(未來可改為檢查ID)
 
 	return randomArticle;
 }
 
 function updateArticle() {
+	console.log('updateArticle 被執行了')
+
 	if (isSwitching.value) return
 	isSwitching.value = true
 
@@ -88,7 +85,7 @@ function updateArticle() {
 
 	setTimeout(() => {
 		// 換內容
-		article.value = getRandomDifferent(articles, article.value)
+		currentArticle.value = getRandomDifferent(articles, currentArticle.value)
 
 		// 改變 key 強制 DOM 重新渲染
 		articleKey.value++
@@ -110,7 +107,7 @@ function toggleArticle() {
 	articleVisible.value = false
 
 	setTimeout(() => {
-		article.value = getRandomDifferent(articles, article.value)
+		currentArticle.value = getRandomDifferent(articles, currentArticle.value)
 		articleVisible.value = true
 
 		setTimeout(() => {

@@ -2,20 +2,24 @@
 	<!-- 輪盤 Carousel：左側，100% 高 -->
 	<div class="carousel-container" @wheel.prevent="handleWheel">
 		<div class="carousel-wrapper">
-			<div class="carousel-decoration top">
-				𖤂
-			</div>
+
 
 			<div class="carousel">
+				<div class="carousel-decoration top">
+					𖤂
+				</div>
+
 				<div v-for="(skill, i) in displayedIcons" :key="i" class="carousel-item"
 					:class="{ active: i === middleIndex }" :style="getCarouselStyle(i)">
 					<img :src="skill.icon" class="carousel-img" :alt="skill.title" />
 				</div>
+
+				<div class="carousel-decoration bottom">
+					𖤂
+				</div>
 			</div>
 
-			<div class="carousel-decoration bottom">
-				𖤂
-			</div>
+
 		</div>
 	</div>
 
@@ -36,7 +40,7 @@ import { computed, ref } from 'vue'
 
 
 // JSON 資料
-import data from './data.json'
+import data from '../../../assets/json/professional.json'
 
 
 // Icon
@@ -311,16 +315,12 @@ function getCarouselStyle(index) {
 <style scoped>
 /* ✅ 左側輪盤 */
 .carousel-container {
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 90px;
-	height: 100vh;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-	z-index: 0;
 }
 
 
@@ -453,7 +453,7 @@ function getCarouselStyle(index) {
 /* ✅ 右上 ICON GRID */
 .icon-grid-container {
 	position: fixed;
-	top: 65px;
+	top: 80px;
 	right: 90px;
 
 	display: flex;
@@ -495,7 +495,7 @@ function getCarouselStyle(index) {
 	border-radius: 8px;
 
 	background: transparent;
-    border: none;
+	border: none;
 
 	opacity: 0.4;
 
@@ -513,15 +513,14 @@ function getCarouselStyle(index) {
 
 
 .icon-item.active {
-    opacity: 1;
+	opacity: 1;
 
 	box-shadow:
 		0 0 0 0.1px rgba(12, 8, 0, 0.17),
 		0 0 6px rgba(250, 171, 0, 0.25);
 
-    filter:
-        drop-shadow(0 0 5px rgba(250, 171, 0, 0.8))
-        drop-shadow(0 0 12px rgba(250, 171, 0, 0.3));
+	filter:
+		drop-shadow(0 0 5px rgba(250, 171, 0, 0.8)) drop-shadow(0 0 12px rgba(250, 171, 0, 0.3));
 }
 
 

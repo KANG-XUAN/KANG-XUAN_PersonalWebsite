@@ -1,10 +1,12 @@
 <template>
 	<div class="fullpage-wrapper">
-		<HomeArea class="step" />
+		<HomeArea id="step1" class="step" />
 
-		<step2 class="step" />
-		<SongArea class="step" />
-		<NovelArea class="step" />
+		<Step2 id="step2" class="step free-scroll" />
+
+		<SongArea id="step3" class="step" />
+
+		<NovelArea id="step4" class="step" />
 	</div>
 </template>
 
@@ -22,6 +24,8 @@ import HomeArea from '@/components/areas/index/HomeArea.vue'
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
 	scroll-padding-right: 60px;
+
+
 }
 
 .step {
@@ -30,5 +34,12 @@ import HomeArea from '@/components/areas/index/HomeArea.vue'
 	width: 100%;
 	padding-top: 60px;
 	/* border: red solid 1px; */
+}
+
+.free-scroll {
+	height: auto;
+	min-height: 100vh;
+	overflow-y: auto;
+	scroll-snap-align: start;
 }
 </style>

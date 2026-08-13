@@ -51,5 +51,11 @@ import FooterCommon from '@/components/common/FooterCommon.vue'
 .professional-content {
     flex: 1;
     min-height: 0;
+
+    display: flex;
+}
+
+.professional-content .row {
+    flex: 1 !important;
 }
 </style>
