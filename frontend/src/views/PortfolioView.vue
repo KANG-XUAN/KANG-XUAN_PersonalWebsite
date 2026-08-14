@@ -29,9 +29,6 @@ import FooterCommon from '@/components/common/FooterCommon.vue'
 
 <style scoped>
 #portfolio {
-	/* background-color: #fdf6e3; */
-	/* background-image: url(https://www.transparenttextures.com/patterns/paper-fibers.png); */
-
 	background-color: #fdf6e3;
 	background-image: url("https://www.transparenttextures.com/patterns/elegant-grid.png");
 	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */

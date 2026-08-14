@@ -1,0 +1,114 @@
+{
+	"projects": [
+		{
+			"id": "retreatbookroom",
+			"title": "棲遲書屋",
+			"summary": "使用 Vue 2 + Node.js + MySQL 打造的線上書店。",
+			"description": "以 Vue 2、Node.js 與 MySQL 開發的線上書店，包含商品瀏覽、會員、購物車等功能。",
+			"tech": [
+				"Vue 2",
+				"Node.js",
+				"MySQL"
+			],
+			"tags": [
+				"Web",
+				"全端應用"
+			],
+			"year": "2025",
+			"status": "● 已完成",
+			"role": "會員頁面、會員部分後端、整合程式",
+			"highlights": [
+				"前後端架構設計",
+				"會員與購物車功能",
+				"MySQL 資料庫設計"
+			],
+			"featured": true,
+			"image": "retreatbookroom",
+			"github": "https://github.com/retreatbookroom/retreatbookroom",
+			"demo": "https://retreatbookroom.vercel.app"
+		},
+		{
+			"id": "ghostkeys",
+			"title": "鬼鍵識",
+			"summary": "使用 Vue 3 + Node.js 打造的互動作品。",
+			"description": "以 Vue 3、Node.js 與 Pinia 製作的互動式 Web 專案。",
+			"tech": [
+				"Vue 3",
+				"Node.js",
+				"Pinia"
+			],
+			"tags": [
+				"Web",
+				"遊戲",
+				"純前端"
+			],
+			"year": "2025",
+			"status": "● 已完成",
+			"role": "獨立作品",
+			"highlights": [
+				"Vue 3 元件化開發",
+				"Pinia 狀態管理",
+				"互動效果設計"
+			],
+			"featured": true,
+			"image": "ghostKeys",
+			"github": "https://github.com/KANG-XUAN/GhostKeys",
+			"demo": "https://kang-xuan.github.io/GhostKeys"
+		},
+		{
+			"id": "api-visualization",
+			"title": "API 資料視覺化平台",
+			"summary": "串接外部 API，並使用 Chart.js 呈現資料。",
+			"description": "測試 API 資料串接與視覺化呈現的實驗性專案。",
+			"tech": [
+				"Vue",
+				"Chart.js",
+				"REST API"
+			],
+			"tags": [
+				"Web",
+				"API",
+				"技術測試"
+			],
+			"year": "2026",
+			"status": "Prototype",
+			"role": "獨立作品",
+			"highlights": [
+				"REST API 串接",
+				"資料轉換",
+				"Chart.js 視覺化"
+			],
+			"featured": false,
+			"image": "demo",
+			"github": "https://github.com/yourname/project-2",
+			"demo": ""
+		},
+		{
+			"id": "portfolio",
+			"title": "Portfolio Website",
+			"summary": "個人作品集與技術展示網站。",
+			"description": "以 Vue 3 製作的個人作品集網站，展示個人技能、作品與開發實驗。",
+			"tech": [
+				"Vue 3",
+				"JavaScript",
+				"CSS"
+			],
+			"tags": [
+				"Web",
+				"純前端"
+			],
+			"year": "2025-至今",
+			"status": "◐ 進行中",
+			"role": "獨立作品",
+			"highlights": [
+				"Vue 3 架構設計",
+				"響應式介面",
+				"動畫與互動效果"
+			],
+			"featured": true,
+			"image": "demo",
+			"github": "",
+			"demo": ""
+		}
+	]
+}

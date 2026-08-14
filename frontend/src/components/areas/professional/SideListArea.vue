@@ -268,38 +268,38 @@ onBeforeUnmount(() => {
 <style scoped>
 /* 列表區域 */
 .side-list-wrapper {
-
 	position: relative;
 
-	align-self: start;
+	align-self: stretch;
 
-	width: 220px;
-	height: 470px;
+	width: clamp(160px, 15vw, 280px);
+	height: 100%;
 
 	overflow: hidden;
 
+	container-type: size;
 }
 
 /* 列表 */
 .side-list {
-
 	display: flex;
 	flex-direction: column;
 
 	width: 100%;
 	height: 100%;
+	min-height: 0;
 
 	border-left:
 		1px solid rgba(255, 255, 255, 0.2);
 
-	padding-left: 20px;
+	padding-left:
+		clamp(10px, 3cqh, 20px);
 
 	overflow-x: hidden;
 	overflow-y: auto;
 
 	scrollbar-width: none;
 	-ms-overflow-style: none;
-
 }
 
 .side-list::-webkit-scrollbar {
@@ -375,21 +375,22 @@ onBeforeUnmount(() => {
 
 /* 列表項目進場 */
 .side-list-item {
-
 	display: flex;
 
 	align-items: flex-start;
 
 	flex-shrink: 0;
 
-	gap: 12px;
+	gap: clamp(6px, 1.2cqh, 12px);
 
-	padding: 10px 0;
+	padding:
+		clamp(5px, 1.2cqh, 10px) 0;
 
 	color:
 		rgba(255, 255, 255, 0.75);
 
-	font-size: 16px;
+	font-size:
+		clamp(12px, 4.2cqh, 40px);
 
 	line-height: 1.5;
 
@@ -410,7 +411,6 @@ onBeforeUnmount(() => {
 	transition:
 		color 0.2s ease,
 		transform 0.2s ease;
-
 }
 
 @keyframes listItemEnter {
@@ -453,7 +453,6 @@ onBeforeUnmount(() => {
 
 /* 列表編號 */
 .side-list-number {
-
 	flex-shrink: 0;
 
 	color:
@@ -462,8 +461,12 @@ onBeforeUnmount(() => {
 	font-family:
 		monospace;
 
-	font-size: 13px;
+	font-size:
+		clamp(10px, 4cqh, 40px);
 
+	line-height: 1.5;
+
+	user-select: none;
 }
 
 /* 列表文字 */

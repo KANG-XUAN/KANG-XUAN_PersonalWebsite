@@ -8,7 +8,7 @@
         </div>
 
 
-        <div class="container-fluid professional-content">
+        <div class="container-fluid professional-content var-professional">
             <div class="row">
                 <ProfessionalPage />
             </div>
@@ -31,8 +31,14 @@ import FooterCommon from '@/components/common/FooterCommon.vue'
 </script>
 
 <style scoped>
+.var-professional {
+    /* 這裡可以把 professional 所有子頁面的CSS變數移到這邊一併管理 */
+}
+
 #professional {
-    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
@@ -41,21 +47,21 @@ import FooterCommon from '@/components/common/FooterCommon.vue'
     background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
 }
 
-
-/*
- * ProfessionalPage 所在的區域
- *
- * Header / Footer 多高都沒關係，
- * 這裡自動吃剩下的高度。
- */
+/* ProfessionalPage 所在的區域 */
 .professional-content {
-    flex: 1;
+    flex: 1 1 auto;
     min-height: 0;
+    min-width: 0;
 
     display: flex;
+    overflow: hidden;
 }
 
+/* Bootstrap Row */
 .professional-content .row {
-    flex: 1 !important;
+    flex: 1 1 auto !important;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
 }
 </style>

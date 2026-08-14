@@ -10,11 +10,13 @@
                 @select="handleSelect" />
 
 
-            <!-- 右側內容 -->
+            <!-- 中間主體內容 -->
             <div class="content-area">
 
                 <!-- 標題 -->
-                <TitleArea :currentIndex="currentIndex" :hoverIndex="hoverIndex" :animationKey="animationKey" />
+                <TitleArea :currentIndex="currentIndex" :hoverIndex="hoverIndex" :animationKey="animationKey"
+                    @update:currentIndex="currentIndex = $event" @update:hoverIndex="hoverIndex = $event"
+                    @select="handleSelect" />
 
 
                 <!-- 下方內容 -->
@@ -139,87 +141,116 @@ function handleSelect(index) {
 
 
 <style scoped>
-/* =========================
- * Page
- * ========================= */
-
+/* Page */
 .page {
-
+    width: 100%;
     height: 100%;
-
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
-
-/* =========================
- * Professional Layout
- * ========================= */
-
+/* 整體左右切版 */
 .professional-layout {
-
     display: flex;
-
+    width: 100%;
     height: 100%;
-
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
+/* 左側輪盤 */
+.professional-layout> :first-child {
+    flex: 0 0 clamp(60px, 14vh, 240px);
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    justify-content: center;
+}
 
-/* =========================
- * 右側所有內容
- * ========================= */
-
+/* 右側主要內容 */
 .content-area {
-
-    position: absolute;
-
-    left: 150px;
-
-    top: 75px;
-
-    z-index: 10;
-
-    width:
-        calc(100vw - 250px);
-
+    position: relative;
+    flex: 1 1 auto;
+    width: auto;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(10px, 3vh, 100px) clamp(30px, 3vw, 70px) clamp(30px, 4vh, 80px) clamp(10px, 1vw, 70px);
     color: white;
-
-    font-size: 32px;
-
+    font-size: clamp(24px, 2vw, 36px);
+    z-index: 10;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
+/* 標題區 */
+.content-area> :first-child {
+    flex: 0 0 auto;
+    width: 100%;
+    height: clamp(60px, 8vh, 120px);
+    min-height: 0;
+}
 
-/* =========================
- * 下方左右區域
- * ========================= */
-
+/* 標題以下內容區 */
 .content-layout {
-
     position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(180px, 15vw, 360px);
+    column-gap: clamp(20px, 3vw, 60px);
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    margin-top: clamp(20px, 2.5vh, 40px);
+    overflow: hidden;
+    box-sizing: border-box;
+}
 
+/* 左側圖文區 */
+.content-main {
     display: grid;
 
-    grid-template-columns:
-        minmax(0, 1fr) 220px;
+    grid-template-rows:
+        auto minmax(0, 1fr) 35%;
 
-    column-gap: 50px;
-
-    margin-top: 30px;
+    row-gap: 3.6vh;
 
     width: 100%;
-
-}
-
-
-/* =========================
- * 左側主要內容
- * ========================= */
-
-.content-main {
-
-    display: flex;
-
-    flex-direction: column;
+    height: 100%;
 
     min-width: 0;
+    min-height: 0;
 
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+/* 簡介區 */
+.content-main> :nth-child(1) {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* 詳細內容區 */
+.content-main> :nth-child(2) {
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* 圖片卡區 */
+.content-main> :nth-child(3) {
+    align-self: end;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
 }
 </style>

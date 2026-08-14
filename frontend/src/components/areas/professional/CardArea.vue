@@ -11,7 +11,8 @@
 
 			<div v-for="(card, index) in selectedData.cards" :key="`${animationKey}-${index}`" class="image-card-enter"
 				:style="{
-					'--card-delay': `${index * 0.06}s`
+					'--card-delay': `${index * 0.06}s`,
+					'--card-aspect-ratio': (card.aspectRatio || '1:1').replace(':', ' / ')
 				}">
 
 				<div class="image-card">
@@ -292,35 +293,33 @@ onBeforeUnmount(() => {
 <style scoped>
 /* 卡片區域 */
 .cards-wrapper {
-
 	position: relative;
 
 	width: 100%;
-	height: 280px;
+	height: 100%;
 
-	margin-top: 30px;
+	min-width: 0;
+	min-height: 0;
 
 	overflow: hidden;
-
 }
 
-/* 卡片列表 */
+/* 卡片水平列表 */
 .cards {
-
 	display: flex;
 	flex-wrap: nowrap;
+	align-items: stretch;
 
 	gap: 16px;
 
 	width: 100%;
 	height: 100%;
 
+	min-width: 0;
+	min-height: 0;
+
 	overflow-x: auto;
 	overflow-y: hidden;
-
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-
 }
 
 .cards::-webkit-scrollbar {
@@ -330,7 +329,6 @@ onBeforeUnmount(() => {
 /* 左右滾動提示光暈 */
 .cards-wrapper::before,
 .cards-wrapper::after {
-
 	content: "";
 
 	position: absolute;
@@ -351,29 +349,26 @@ onBeforeUnmount(() => {
 
 	filter:
 		blur(4px);
-
 }
 
+/* 左側光暈 */
 .cards-wrapper::before {
-
 	left: 0;
 
 	background:
 		linear-gradient(to right,
 			rgba(255, 255, 255, 0.12),
 			rgba(255, 255, 255, 0));
-
 }
 
+/* 右側光暈 */
 .cards-wrapper::after {
-
 	right: 0;
 
 	background:
 		linear-gradient(to left,
 			rgba(255, 255, 255, 0.18),
 			rgba(255, 255, 255, 0));
-
 }
 
 .cards-wrapper.can-scroll-left::before {
@@ -402,9 +397,16 @@ onBeforeUnmount(() => {
 
 /* 卡片進場動畫 */
 .image-card-enter {
-
 	flex:
-		0 0 260px;
+		0 0 auto;
+
+	height: 100%;
+	min-height: 0;
+
+	aspect-ratio:
+		var(--card-aspect-ratio, 1 / 1);
+
+	box-sizing: border-box;
 
 	opacity: 0;
 
@@ -416,7 +418,6 @@ onBeforeUnmount(() => {
 
 	animation-delay:
 		var(--card-delay);
-
 }
 
 @keyframes cardEnter {
@@ -443,11 +444,15 @@ onBeforeUnmount(() => {
 
 /* 卡片本體 */
 .image-card {
-
 	position: relative;
 
 	width: 100%;
-	height: fit-content;
+	height: 100%;
+
+	min-height: 0;
+
+	display: flex;
+	flex-direction: column;
 
 	overflow: hidden;
 
@@ -465,6 +470,7 @@ onBeforeUnmount(() => {
 		border-color 0.25s ease,
 		background 0.25s ease;
 
+	container-type: size;
 }
 
 .image-card:hover {
@@ -482,14 +488,12 @@ onBeforeUnmount(() => {
 
 /* 卡片圖片 */
 .image-card-image {
+	flex: 1 1 auto;
 
 	width: 100%;
-
-	aspect-ratio:
-		16 / 10;
+	min-height: 0;
 
 	overflow: hidden;
-
 }
 
 .image-card-image img {
@@ -513,28 +517,37 @@ onBeforeUnmount(() => {
 
 }
 
-/* 卡片文字內容 */
-.image-card-content {
-	padding: 14px;
-}
-
+/* 卡片文字標題 */
 .image-card-title {
+    font-size:
+        clamp(12px, 3cqh, 22px);
 
-	font-size: 18px;
-	font-weight: bold;
+    line-height: 1.2;
 
+    font-weight: bold;
 }
 
+.image-card-content {
+    flex: 0 0 auto;
+
+    padding:
+        clamp(6px, 2cqh, 14px);
+
+    box-sizing: border-box;
+}
+
+/* 卡片文字內容 */
 .image-card-describe {
+    margin-top:
+        clamp(3px, 0.8cqh, 6px);
 
-	margin-top: 6px;
+    color:
+        rgba(255, 255, 255, 0.65);
 
-	color:
-		rgba(255, 255, 255, 0.65);
+    font-size:
+        clamp(10px, 2.2cqh, 16px);
 
-	font-size: 14px;
-	line-height: 1.5;
-
+    line-height: 1.4;
 }
 
 /* 卡片進場掃光 */

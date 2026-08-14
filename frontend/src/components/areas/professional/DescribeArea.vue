@@ -45,7 +45,8 @@ const previewData = computed(() => {
 .describe {
 	flex-shrink: 0;
 
-	font-size: 24px;
+	font-size:
+		clamp(16px, 2.7vh, 36px);
 
 	line-height: 1.5;
 }

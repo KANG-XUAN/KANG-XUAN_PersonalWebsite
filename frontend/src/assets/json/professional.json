@@ -10,12 +10,14 @@
                 {
                     "image": "/images/html-1.jpg",
                     "title": "Semantic HTML",
-                    "describe": "語意化 HTML"
+                    "describe": "語意化 HTML",
+                    "aspectRatio": "16:9"
                 },
                 {
                     "image": "/images/html-2.jpg",
                     "title": "Forms",
-                    "describe": "HTML 表單"
+                    "describe": "HTML 表單",
+                    "aspectRatio": "1:1"
                 }
             ],
             "list": [
@@ -35,17 +37,20 @@
                 {
                     "image": "/images/vue-1.jpg",
                     "title": "Component",
-                    "describe": "Vue 元件化開發"
+                    "describe": "Vue 元件化開發",
+                    "aspectRatio": "4:3"
                 },
                 {
                     "image": "/images/vue-2.jpg",
                     "title": "Data Binding",
-                    "describe": "資料雙向綁定"
+                    "describe": "資料雙向綁定",
+                    "aspectRatio": "16:9"
                 },
                 {
                     "image": "/images/vue-3.jpg",
                     "title": "Props & Emit",
-                    "describe": "父子元件溝通"
+                    "describe": "父子元件溝通",
+                    "aspectRatio": "1:1"
                 }
             ],
             "list": [
@@ -80,22 +85,26 @@
                 {
                     "image": "/images/java-1.jpg",
                     "title": "Object Oriented",
-                    "describe": "物件導向程式設計"
+                    "describe": "物件導向程式設計",
+                    "aspectRatio": "1:1"
                 },
                 {
                     "image": "/images/java-2.jpg",
                     "title": "Exception Handling",
-                    "describe": "例外處理"
+                    "describe": "例外處理",
+                    "aspectRatio": "16:9"
                 },
                 {
                     "image": "/images/java-3.jpg",
                     "title": "Interface",
-                    "describe": "介面與抽象設計"
+                    "describe": "介面與抽象設計",
+                    "aspectRatio": "4:3"
                 },
                 {
                     "image": "/images/java-4.jpg",
                     "title": "Backend Logic",
-                    "describe": "後端商業邏輯"
+                    "describe": "後端商業邏輯",
+                    "aspectRatio": "1:1"
                 }
             ],
             "list": [
@@ -121,7 +130,8 @@
                 {
                     "image": "/images/cloud-1.jpg",
                     "title": "Deployment",
-                    "describe": "網站部署"
+                    "describe": "網站部署",
+                    "aspectRatio": "16:9"
                 }
             ],
             "list": [
@@ -149,12 +159,14 @@
                 {
                     "image": "/images/word-1.jpg",
                     "title": "Document",
-                    "describe": "正式文件製作"
+                    "describe": "正式文件製作",
+                    "aspectRatio": "4:3"
                 },
                 {
                     "image": "/images/word-2.jpg",
                     "title": "Layout",
-                    "describe": "文件版面排版"
+                    "describe": "文件版面排版",
+                    "aspectRatio": "1:1"
                 }
             ],
             "list": [
@@ -174,17 +186,20 @@
                 {
                     "image": "/images/excel-1.jpg",
                     "title": "Formula",
-                    "describe": "公式與函數"
+                    "describe": "公式與函數",
+                    "aspectRatio": "16:9"
                 },
                 {
                     "image": "/images/excel-2.jpg",
                     "title": "Pivot Table",
-                    "describe": "樞紐分析"
+                    "describe": "樞紐分析",
+                    "aspectRatio": "1:1"
                 },
                 {
                     "image": "/images/excel-3.jpg",
                     "title": "Data Analysis",
-                    "describe": "資料分析"
+                    "describe": "資料分析",
+                    "aspectRatio": "4:3"
                 }
             ],
             "list": [
@@ -219,22 +234,26 @@
                 {
                     "image": "/images/illustrator-1.jpg",
                     "title": "Vector Design",
-                    "describe": "向量圖形設計"
+                    "describe": "向量圖形設計",
+                    "aspectRatio": "16:9"
                 },
                 {
                     "image": "/images/illustrator-2.jpg",
                     "title": "Logo",
-                    "describe": "Logo 設計"
+                    "describe": "Logo 設計",
+                    "aspectRatio": "16:9"
                 },
                 {
                     "image": "/images/illustrator-3.jpg",
                     "title": "Icon",
-                    "describe": "網站圖示設計"
+                    "describe": "網站圖示設計",
+                    "aspectRatio": "16:9"
                 },
                 {
                     "image": "/images/illustrator-4.jpg",
                     "title": "Pen Tool",
-                    "describe": "鋼筆工具與路徑"
+                    "describe": "鋼筆工具與路徑",
+                    "aspectRatio": "16:9"
                 }
             ],
             "list": [

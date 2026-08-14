@@ -1,0 +1,56 @@
+{
+	"projects": [
+		{
+			"title": "棲遲書屋",
+			"summary": "使用 Vue 2 + Node.js + MySQL 打造的線上書店。",
+			"description": "使用 Vue 2 + Node.js + MySQL 打造的線上書店。",
+			"tech": [
+				"Vue 2",
+				"Node.js",
+				"MySQL"
+			],
+			"image": "retreatbookroom",
+			"github": "https://github.com/retreatbookroom/retreatbookroom",
+			"demo": "https://retreatbookroom.vercel.app"
+		},
+		{
+			"title": "鬼鍵識",
+			"summary": "使用 Vue 3 + Node.js。",
+			"description": "使用 Vue 3 + Node.js。",
+			"tech": [
+				"Vue 3",
+				"Node.js",
+				"Pinia"
+			],
+			"image": "ghostKeys",
+			"github": "https://github.com/KANG-XUAN/GhostKeys",
+			"demo": "https://kang-xuan.github.io/GhostKeys"
+		},
+		{
+			"title": "API 資料視覺化平台(版面測試)",
+			"summary": "串接外部 API，並使用 Chart.js 呈現圖表。",
+			"description": "串接外部 API，並使用 Chart.js 呈現圖表。",
+			"tech": [
+				"Vue",
+				"Chart.js",
+				"REST API"
+			],
+			"image": "demo",
+			"github": "https://github.com/yourname/project-2",
+			"demo": ""
+		},
+		{
+			"title": "標題",
+			"summary": "簡述",
+			"description": "點開詳細資訊",
+			"tech": [
+				"Vue",
+				"Chart.js",
+				"REST API"
+			],
+			"image": "demo",
+			"github": "https://github.com/yourname/project-2",
+			"demo": ""
+		}
+	]
+}

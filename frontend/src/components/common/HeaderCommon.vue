@@ -18,7 +18,7 @@
 				<!-- 右側 3 -->
 				<div class="col-4 text-end pe-3 text-white">
 					<nav class="navbar nav-links">
-						<router-link class="nav-link text-white" to="/professional">專業</router-link>
+						<router-link class="nav-link text-white" to="/professional">專業技能</router-link>
 						<router-link class="nav-link text-white" to="/portfolio">作品集</router-link>
 						<router-link class="nav-link text-white" to="/about">關於我</router-link>
 					</nav>
@@ -35,30 +35,33 @@ const route = useRoute()
 </script>
 
 <style scoped>
+/* Header */
 .header-bar {
 	position: sticky;
 	top: 0;
 	z-index: 10;
-	backdrop-filter: blur(4px);
-	padding: 5px 0;
 	width: 100%;
+	padding: clamp(5px, 0.36vw, 30px) 0;
+	backdrop-filter: blur(clamp(4px, 0.4vw, 10px));
 }
 
+/* 首頁保留 scrollbar 空間 */
 .with-scrollbar-padding {
 	width: calc(100% - 15px);
-	/* 只在首頁保留 scrollbar 空間 */
 }
 
-/* 背景層 1：常駐的漸層 */
+/* 常駐漸層 */
 .header-bar::before {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+	background: linear-gradient(to bottom,
+			rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0));
 	z-index: -2;
 }
 
-/* 背景層 2：hover 時疊加的黑底 */
+/* Hover 黑底 */
 .header-bar::after {
 	content: "";
 	position: absolute;
@@ -73,27 +76,30 @@ const route = useRoute()
 	opacity: 1;
 }
 
-
+/* Logo */
 .logo-img {
-	height: 40px;
-	/* 根據你的設計調整大小 */
+	height: clamp(40px, 2.4vw, 90px);
+	width: auto;
 	object-fit: contain;
 }
 
+/* 導覽列 */
 .nav-links {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	gap: 20px;
-	/* 每個 router-link 間隔 20px */
+	gap: clamp(20px, 1.8vw, 45px);
 	padding: 0;
 }
 
+/* 導覽文字 */
 .nav-link {
 	flex: 1;
 	text-align: center;
-	font-size: 14px;
+	font-size: clamp(14px, 1.2vw, 36px);
+	white-space: nowrap;
 }
 
+/* 導覽 Hover */
 .nav-link:hover {}
 </style>
