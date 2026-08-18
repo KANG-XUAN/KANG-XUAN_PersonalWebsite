@@ -456,7 +456,7 @@ watch(
 
 	backdrop-filter: blur(8px);
 
-	z-index: 1000;
+	z-index: 10;
 }
 
 

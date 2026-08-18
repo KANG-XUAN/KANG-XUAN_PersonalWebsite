@@ -1,11 +1,14 @@
 <template>
 	<footer class="footer-bar text-light text-center">
-		<small>© 2025 康亘翔個人網站版權所有。</small>
+		<small>
+			<span class="copyright-symbol">©</span>
+			2025–{{ currentYear }} 亘的拾光誌｜康亘翔 版權所有。
+		</small>
 	</footer>
 </template>
 
 <script setup>
-// 沒有特別邏輯，不用寫內容
+const currentYear = new Date().getFullYear()
 </script>
 
 <style scoped>
@@ -27,5 +30,14 @@
 	font-size: clamp(11px, 1vw, 30px);
 	line-height: 1.5;
 	white-space: nowrap;
+}
+
+/* 版權符號調整 */
+.copyright-symbol {
+	display: inline-block;
+
+	font-size: 1.4em;
+
+	vertical-align: -0.2em;
 }
 </style>

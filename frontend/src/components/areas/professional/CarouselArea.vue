@@ -6,7 +6,9 @@
 			<div class="carousel">
 
 				<div class="carousel-decoration top">
-					𖤂
+					<svg viewBox="0 0 100 60" aria-hidden="true">
+						<path d="M5 5 L50 55 L95 5 L50 20 Z" />
+					</svg>
 				</div>
 
 				<div v-for="(skill, i) in displayedIcons" :key="i" class="carousel-item"
@@ -15,7 +17,9 @@
 				</div>
 
 				<div class="carousel-decoration bottom">
-					𖤂
+					<svg viewBox="0 0 100 60" aria-hidden="true">
+						<path d="M5 5 L50 55 L95 5 L50 20 Z" />
+					</svg>
 				</div>
 
 			</div>
@@ -250,7 +254,7 @@ function getCarouselStyle(index) {
 		drop-shadow(0 0 8px rgba(250, 171, 0, 0.85));
 }
 
-/* 上下裝飾 */
+/* 上下裝飾箭頭 */
 .carousel-decoration {
 	position: absolute;
 
@@ -259,25 +263,42 @@ function getCarouselStyle(index) {
 
 	z-index: 20;
 
-	font-size: clamp(16px, 2.8vh, 32px);
-
-	color: #756033;
+	width: clamp(24px, 4vh, 45px);
+	height: auto;
 
 	opacity: 0.65;
 
 	pointer-events: none;
 
-	filter: blur(0.5px);
+	filter:
+		drop-shadow(0 0 3px rgba(250, 171, 0, 0.8)) drop-shadow(0 0 8px rgba(85, 65, 21, 0.45));
+}
 
-	text-shadow:
-		0 0 3px rgba(250, 171, 0, 0.8),
-		0 0 8px rgba(85, 65, 21, 0.45);
+/* SVG */
+.carousel-decoration svg {
+	display: block;
+
+	width: 100%;
+	height: auto;
+
+	overflow: visible;
+}
+
+.carousel-decoration path {
+	fill: none;
+
+	stroke: #756033;
+
+	stroke-width: 5;
+
+	stroke-linecap: round;
+	stroke-linejoin: round;
 }
 
 /* 上方裝飾 */
 .carousel-decoration.top {
 	margin-top:
-		calc(clamp(45px, 8vh, 135px) * -4.25);
+		calc(clamp(45px, 8vh, 135px) * 4.35);
 
 	animation:
 		arrowFloatUp 2s ease-in-out infinite;
@@ -286,39 +307,41 @@ function getCarouselStyle(index) {
 /* 下方裝飾 */
 .carousel-decoration.bottom {
 	margin-top:
-		calc(clamp(45px, 8vh, 135px) * 4.25);
+		calc(clamp(45px, 8vh, 135px) * -4.35);
 
 	animation:
 		arrowFloatDown 2s ease-in-out infinite;
 }
 
-/* 上方裝飾動畫 */
+
+/* 上方箭頭動畫 */
 @keyframes arrowFloatUp {
 
 	0%,
 	100% {
 		transform:
-			translate(-50%, -50%) scaleX(3) scaleY(1);
+			translate(-50%, -50%) scaleX(1.8) scaleY(1);
 	}
 
 	50% {
 		transform:
-			translate(-50%, calc(-50% - 0.6vh)) scaleX(2.7) scaleY(0.85);
+			translate(-50%, calc(-50% - 0.6vh)) scaleX(1.6) scaleY(0.85);
 	}
 }
 
-/* 下方裝飾動畫 */
+
+/* 下方箭頭動畫 */
 @keyframes arrowFloatDown {
 
 	0%,
 	100% {
 		transform:
-			translate(-50%, -50%) scaleX(3) scaleY(1) rotate(180deg);
+			translate(-50%, -50%) scaleX(1.8) scaleY(1) rotate(180deg);
 	}
 
 	50% {
 		transform:
-			translate(-50%, calc(-50% + 0.6vh)) scaleX(2.7) scaleY(0.85) rotate(180deg);
+			translate(-50%, calc(-50% + 0.6vh)) scaleX(1.6) scaleY(0.85) rotate(180deg);
 	}
 }
 </style>

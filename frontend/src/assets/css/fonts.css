@@ -1,8 +1,45 @@
+/* 首頁首屏需要的字體 */
 @font-face {
 	font-family: '王翰宗中行書';
+
+	src: url('/fonts/wangfonts/TrueType/wt071-critical.woff2') format('woff2');
+
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+
+	unicode-range:
+		/* 歡迎來到我的網站 */
+		U+6B61, U+8FCE, U+4F86, U+5230, U+6211, U+7684, U+7DB2, U+7AD9,
+
+		/* 罔談彼短 靡恃己長 信使可覆 器欲難量 */
+		U+7F54, U+8AC7, U+5F7C, U+77ED,
+		U+9761, U+6065, U+5DF1, U+9577,
+		U+4FE1, U+4F7F, U+53EF, U+8986,
+		U+5668, U+6B32, U+96E3, U+91CF,
+
+		/* 禍因惡積 福緣善慶 尺璧非寶 寸陰是競 */
+		U+798D, U+56E0, U+60E1, U+7A4D,
+		U+798F, U+7DE3, U+5584, U+6176,
+		U+5C3A, U+74A7, U+975E, U+5BF6,
+		U+5BF8, U+9670, U+662F, U+7AF6,
+
+		/* 周興嗣《千字文．節選》 */
+		U+5468, U+8208, U+55E3, U+5343,
+		U+5B57, U+6587, U+7BC0, U+9078,
+
+		/* 標點 */
+		U+2014, U+300A, U+300B, U+FF0E, U+3000;
+}
+
+
+/* 完整字體 */
+@font-face {
+	font-family: '王翰宗中行書';
+
 	src:
-		/* url('../fonts/wangfonts/TrueType/wt071.ttf') format('woff2'), */
-		url('../fonts/wangfonts/TrueType/wt071.ttf') format('truetype');
+		url('../fonts/wangfonts/TrueType/wt071.woff2') format('woff2');
+
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;

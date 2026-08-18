@@ -5,10 +5,11 @@
         <div class="professional-layout">
 
             <!-- 左邊輪盤 -->
-            <CarouselArea :currentIndex="currentIndex" :hoverIndex="hoverIndex"
-                @update:currentIndex="currentIndex = $event" @update:hoverIndex="hoverIndex = $event"
-                @select="handleSelect" />
-
+            <div class="carousel-area">
+                <CarouselArea :currentIndex="currentIndex" :hoverIndex="hoverIndex"
+                    @update:currentIndex="currentIndex = $event" @update:hoverIndex="hoverIndex = $event"
+                    @select="handleSelect" />
+            </div>
 
             <!-- 中間主體內容 -->
             <div class="content-area">
@@ -17,7 +18,6 @@
                 <TitleArea :currentIndex="currentIndex" :hoverIndex="hoverIndex" :animationKey="animationKey"
                     @update:currentIndex="currentIndex = $event" @update:hoverIndex="hoverIndex = $event"
                     @select="handleSelect" />
-
 
                 <!-- 下方內容 -->
                 <div class="content-layout">
@@ -28,11 +28,9 @@
                         <!-- 簡介 -->
                         <DescribeArea :currentIndex="currentIndex" :hoverIndex="hoverIndex" />
 
-
                         <!-- 詳細內容 -->
                         <DetailArea :currentIndex="currentIndex" :hoverIndex="hoverIndex"
                             :animationKey="animationKey" />
-
 
                         <!--
 							圖片卡
@@ -43,7 +41,6 @@
                         <CardArea :currentIndex="currentIndex" :hoverIndex="hoverIndex" :animationKey="animationKey" />
 
                     </div>
-
 
                     <!-- 右側列表 -->
                     <SideListArea :currentIndex="currentIndex" :hoverIndex="hoverIndex" :animationKey="animationKey" />
@@ -58,15 +55,9 @@
 
 </template>
 
-
 <script setup>
 
 import { ref } from 'vue'
-
-
-/* =========================
- * Areas
- * ========================= */
 
 import CarouselArea
     from '../areas/professional/CarouselArea.vue'
@@ -86,17 +77,14 @@ import CardArea
 import SideListArea
     from '../areas/professional/SideListArea.vue'
 
-
 /* =========================
  * 狀態
  * ========================= */
-
 
 /*
  * 正式選取的技能
  */
 const currentIndex = ref(0)
-
 
 /*
  * 目前 Hover 的技能
@@ -104,7 +92,6 @@ const currentIndex = ref(0)
  * null = 沒有 Hover
  */
 const hoverIndex = ref(null)
-
 
 /*
  * 正式選取動畫觸發次數
@@ -114,7 +101,6 @@ const hoverIndex = ref(null)
  * Hover 不會改變
  */
 const animationKey = ref(0)
-
 
 /* =========================
  * 正式選取
@@ -139,7 +125,6 @@ function handleSelect(index) {
 
 </script>
 
-
 <style scoped>
 /* Page */
 .page {
@@ -161,7 +146,7 @@ function handleSelect(index) {
 }
 
 /* 左側輪盤 */
-.professional-layout> :first-child {
+.carousel-area {
     flex: 0 0 clamp(60px, 14vh, 240px);
     height: 100%;
     min-width: 0;
@@ -180,7 +165,7 @@ function handleSelect(index) {
     min-height: 0;
     display: flex;
     flex-direction: column;
-    padding: clamp(10px, 3vh, 100px) clamp(30px, 3vw, 70px) clamp(30px, 4vh, 80px) clamp(10px, 1vw, 70px);
+    padding: clamp(50px, 7vh, 80px) clamp(30px, 3vw, 70px) clamp(30px, 4vh, 80px) clamp(10px, 1vw, 70px);
     color: white;
     font-size: clamp(24px, 2vw, 36px);
     z-index: 10;
